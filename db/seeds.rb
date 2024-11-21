@@ -7,9 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-
+User.destroy_all
 Doctor.destroy_all
-
+User.create!(
+  first_name: "secretary",
+  user_id: 1
+)
 Doctor.create!(
   first_name: "Joel Mario",
   last_name: "Armenta",
@@ -20,7 +23,7 @@ Doctor.create!(
   Shortly thereafter I moved to Lübeck in Schleswig Holstein. Now I have worked at Le Krankenwagon for 12 years.",
   education: "MD In Cardiology from John Hopkins University",
   availability: "M-F 13-14Uhr",
-  price_per_hour: 70
+  price_per_hour: 70,
   user_id: 1
   )
 
@@ -35,7 +38,7 @@ Doctor.create!(
   neurologist at Charite Universitätsmedizin Berlin. Now I have worked at Le Krankenwagon Berlin for 7 years.",
   education: "MD in cardiology from the Instituto Argentino de Diagnostico y Tratamiento",
   availability: "M-F 12-13Uhr",
-  price_per_hour: 90
+  price_per_hour: 90,
   user_id: 1
   )
 
@@ -51,7 +54,7 @@ Doctor.create!(
   Hanover for 7 years.",
   education: "MD in pediatry from the Universidad Autónoma de Madrid",
   availability: "M-F 14-15Uhr",
-  price_per_hour: 75
+  price_per_hour: 75,
   user_id: 1
   )
 
@@ -67,23 +70,23 @@ Doctor.create!(
   years.",
   education: "MD in clinical psychology from Fortis Flt Lt Rajan Dhall Hospital",
   availability: "M-F 13-15Uhr",
-  price_per_hour: 77
+  price_per_hour: 77,
   user_id: 1
   )
 
 Doctor.create!(
-  first_name: "Judit",
-  last_name: "Puig",
+  first_name: "Pedro",
+  last_name: "Ramírez",
   experience: 12,
-  specialization: "pediatry",
-  city: "Hannover, NI",
-  description: "I graduated from the Universidad Autónoma de Madrid in 2012 and made my residency at
-  Hospital Infantil Universitario Niño Jesús. Later I moved to Hannover, NI and recertified as a
+  specialization: "cardiología",
+  city: "Oxford, OX",
+  description: "I graduated from the Oxford University in Oxford in 2012 and made my residency at
+  Royal London Hospital. Later I moved to Hannover, NI and recertified as a
   paediatrician at Charite Universitätsmedizin Berlin. Now I live in Hannover. I now have worked at Le Krankenwagon
   Hanover for 7 years.",
-  education: "MD in pediatry from the Universidad Autónoma de Madrid",
+  education: "MD in cardiology surgery from the University of London",
   availability: "M-F 14-15Uhr",
-  price_per_hour: 75
+  price_per_hour: 75,
   user_id: 1
   )
 

@@ -1,6 +1,10 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @appointments = Appointment.all
+  end
+
   def new
     @doctor = Doctor.find(params[:doctor_id])
     @appointment = Appointment.new

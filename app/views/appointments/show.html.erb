@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Appointment Details</h1>
+
+  <p><strong>Doctor:</strong> <%= @doctor.full_name %></p>
+  <p><strong>Specialization:</strong> <%= @doctor.specialization %></p>
+  <p><strong>Start Time:</strong> <%= @appointment.starts_at.strftime('%B %d, %Y %I:%M %p') %></p>
+  <p><strong>End Time:</strong> <%= @appointment.ends_at.strftime('%B %d, %Y %I:%M %p') %></p>
+  <p><strong>Message:</strong> <%= @appointment.message %></p>
+  <p><strong>Symptoms:</strong> <%= @appointment.symptoms %></p>
+  <p><strong>Medical History:</strong> <%= @appointment.medical_history %></p>
+  <p><strong>Price:</strong> $<%= @doctor.price_per_hour %></p>
+
+  <%= link_to 'Back to Appointments', doctor_path(@doctor), class: "btn btn-secondary" %>
+</div>

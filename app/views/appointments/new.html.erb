@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Schedule a New Appointment with <%= @doctor.full_name %></h1>
+
+  <%= simple_form_for [@doctor, @appointment], html: { class: "appointment-form" } do |form| %>
+    <div class="form-group">
+      <%= form.input :starts_at, as: :datetime, label: "Start Time" %>
+    </div>
+    <div class="form-group">
+      <%= form.input :ends_at, as: :datetime, label: "End Time" %>
+    </div>
+    <div class="form-group">
+      <%= form.input :message, as: :text, label: "Message", input_html: { rows: 4 } %>
+    </div>
+    <div class="form-group">
+      <%= form.input :symptoms, as: :text, label: "Symptoms", input_html: { rows: 4 } %>
+    </div>
+    <div class="form-group">
+      <%= form.input :medical_history, as: :text, label: "Medical History", input_html: { rows: 4 } %>
+    </div>
+    <div class="form-actions">
+      <%= form.button :submit, "Create Appointment", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back to Doctor', doctor_path(@doctor), class: "btn btn-secondary" %>
+</div>

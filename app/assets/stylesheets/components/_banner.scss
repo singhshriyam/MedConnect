@@ -1,0 +1,33 @@
+.banner {
+  width: 100%;
+  height: 600px;
+  background-image: asset-url('banner-img.png');
+  // background-color: #EAF1F9;
+  background-size: cover;
+}
+
+.banner-text {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  padding-left: 200px;
+  padding-right: 800px;
+}
+.banner-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: bolder;
+  font-size: 56px;
+  color: #424242;
+}
+.banner-text p {
+  font-size: 18px;
+  color: #8B8B8B;
+}
+
+.banner-bag-img {
+  position: absolute;
+  top: 60%;
+  left: 3%;
+}
+.banner-bag-img img {
+  height: 250px;
+}

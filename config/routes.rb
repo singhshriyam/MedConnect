@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :doctors do
-    resources :appointments, only: [:new, :create]
+    resources :appointments, only: [:new, :create, :show]
   end
 end

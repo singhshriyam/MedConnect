@@ -5,9 +5,32 @@
   text-align: center;
   margin-left: 11%;
   margin-right: 11%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  // border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .categories-text h1 {
   padding-top: 50px;
+}
+
+.categories-icons {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.categories-icons h3 {
+  color: #008C99;
+  padding-top: 20px;
+}
+.category-icon1 img, .category-icon2 img, .category-icon3 img, .category-icon4 img, .category-icon5 img {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  box-shadow: 0 4px 4px #008C99;
+}
+
+.category-icon1:hover, .category-icon2:hover, .category-icon3:hover, .category-icon4:hover, .category-icon5:hover {
+  transform: scale(1.1);
+  transition: transform 0.8s ease, color 0.8s ease;
 }

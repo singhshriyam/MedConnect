@@ -8,10 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create! (
-  first_name: "hgfdajhfe",
-  last_name: "a,ndf.awen",
-)
 
 
 Doctor.destroy_all
@@ -26,7 +22,7 @@ Doctor.create!(
   Shortly thereafter I moved to Lübeck in Schleswig Holstein. Now I have worked at Le Krankenwagon for 12 years.",
   education: "MD In Cardiology from John Hopkins University",
   availability: "M-F 13-14Uhr",
-  price_per_hour: 70
+  price_per_hour: 70,
   user_id: 1
   )
 
@@ -41,7 +37,7 @@ Doctor.create!(
   neurologist at Charite Universitätsmedizin Berlin. Now I have worked at Le Krankenwagon Berlin for 7 years.",
   education: "MD in cardiology from the Instituto Argentino de Diagnostico y Tratamiento",
   availability: "M-F 12-13Uhr",
-  price_per_hour: 90
+  price_per_hour: 90,
   user_id: 1
   )
 
@@ -57,7 +53,7 @@ Doctor.create!(
   Hanover for 7 years.",
   education: "MD in pediatry from the Universidad Autónoma de Madrid",
   availability: "M-F 14-15Uhr",
-  price_per_hour: 75
+  price_per_hour: 75,
   user_id: 1
   )
 
@@ -73,7 +69,7 @@ Doctor.create!(
   years.",
   education: "MD in clinical psychology from Fortis Flt Lt Rajan Dhall Hospital",
   availability: "M-F 13-15Uhr",
-  price_per_hour: 77
+  price_per_hour: 77,
   user_id: 1
   )
 
@@ -89,7 +85,7 @@ Doctor.create!(
   Hanover for 7 years.",
   education: "MD in pediatry from the Universidad Autónoma de Madrid",
   availability: "M-F 14-15Uhr",
-  price_per_hour: 75
+  price_per_hour: 75,
   user_id: 1
   )
 

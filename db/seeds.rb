@@ -8,6 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+User.create! (
+  first_name: "hgfdajhfe",
+  last_name: "a,ndf.awen",
+)
+
+
 Doctor.destroy_all
 
 Doctor.create!(

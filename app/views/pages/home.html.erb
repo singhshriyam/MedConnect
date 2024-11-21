@@ -39,28 +39,38 @@
     <div class="categories-text">
       <h1>Choose your category</h1>
     </div>
-
     <div class="categories-icons">
       <!--Here goes icon1-->
       <div class="category-icon1">
-        
+        <%= image_tag "lungs.png" %>
+        <h3>Pulmonologist</h3>
       </div>
-      <!--Here goes icon2-->
       <div class="category-icon2">
+        <%= image_tag "general.png" %>
+        <h3>General Practitioner</h3>
       </div>
-      <!--Here goes icon3-->
       <div class="category-icon3">
+        <%= image_tag "pediatrician.png" %>
+        <h3>Pediatrician</h3>
       </div>
-      <!--Here goes icon4-->
       <div class="category-icon4">
+        <%= image_tag "phyciatrist.png" %>
+        <h3>Psychiatrist</h3>
       </div>
-      <!--Here goes icon5-->
       <div class="category-icon5">
+        <%= image_tag "skin.png" %>
+        <h3>Dermatologist</h3>
       </div>
     </div>
   </div>
   <!--Here goes the location-->
   <div class="location">
+    <%= image_tag "locationpin.png" %>
+    <h3>Search location</h3>
+    <%= form_with url: doctors_path, method: :get, local: true, class: "search-form" do %>
+      <%= text_field_tag :location, nil, placeholder: "Enter your city", class: "form-control location-input" %>
+      <%= submit_tag "Search", class: "btn btn-primary search-btn" %>
+    <% end %>
   </div>
   <!--Here goes the services-->
   <div class="services">

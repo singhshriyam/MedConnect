@@ -21,6 +21,13 @@
   </head>
 
   <body>
+
+    <div class="pages-container">
+      <div class="navbar-container"><%= render "shared/navbar" %></div>
+      <div class="content-container"><%= yield %></div>
+      <div class="footer-container"><%= render "shared/footer" %></div>
+    </div>
+
     <div class="navbar">
       <div>
         <span class="med">Med</span><span class="connect">Connect</span>
@@ -33,5 +40,6 @@
       </div>
     </div>
     <%= yield %>
+
   </body>
 </html>

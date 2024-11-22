@@ -1,0 +1,46 @@
+.location {
+  display: flex;
+  width: 1200px;
+  height: 50px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 11%;
+  margin-right: 11%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #008C99;
+  border-radius: 10px;
+  justify-content: end;
+}
+.location img {
+  position: absolute;
+  height: 100px;
+  top: 1710px;
+  left: 200px;
+}
+
+.location h3 {
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: white;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.location-input {
+  flex: 1;
+  padding: 5px;
+  font-size: 14px;
+  width: 500px;
+}
+
+.search-btn {
+  padding: 5px 30px;
+  font-size: 14px;
+  white-space: nowrap;
+  margin-right: 50px;
+}

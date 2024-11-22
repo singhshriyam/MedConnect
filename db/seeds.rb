@@ -8,8 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Doctor.destroy_all
+User.destroy_all
 
+Doctor.destroy_all
+User.create!(
+  first_name: "secretary",
+  user_id: 1
+)
 Doctor.create!(
   first_name: "Joel Mario",
   last_name: "Armenta",
@@ -159,6 +164,23 @@ Doctor.create!(
   availability: "M-F 12-16 Uhr",
   price_per_hour: 80,
   user_id: 4
+
+  )
+
+Doctor.create!(
+  first_name: "Pedro",
+  last_name: "Ramírez",
+  experience: 12,
+  specialization: "cardiología",
+  city: "Oxford, OX",
+  description: "I graduated from the Oxford University in Oxford in 2012 and made my residency at
+  Royal London Hospital. Later I moved to Hannover, NI and recertified as a
+  paediatrician at Charite Universitätsmedizin Berlin. Now I live in Hannover. I now have worked at Le Krankenwagon
+  Hanover for 7 years.",
+  education: "MD in cardiology surgery from the University of London",
+  availability: "M-F 14-15Uhr",
+  price_per_hour: 75,
+  user_id: 1
   )
 
 puts "Seeds created!"

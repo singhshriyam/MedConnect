@@ -1,0 +1,71 @@
+.services {
+  margin-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  width: cover;
+  height: 400px;
+  background: white;
+  text-align: center;
+  margin-left: 11%;
+  margin-right: 11%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  display: flex;
+  justify-content: auto;
+}
+
+.services-text{
+  margin: 3%;
+  width: 50%;
+  height: cover;
+  color: grey;
+  h1{
+    font-size: 57px;
+
+  }
+}
+.services-cards{
+  width: 50%;
+  height: cover;
+  display: flex;
+  justify-content: auto;
+
+  .services-card-online{
+    width: 50%;
+    height: cover;
+    background-color: $back;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    margin-right: 30px;
+    img{
+      width:100%;
+      height: cover;
+    }
+    .card-online-text{
+      color: $blue;
+      font-size: 32px;
+      padding: 3%;
+    }
+  }
+  .findoctors-card{
+    width: 50%;
+    height: cover;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    background-color: $back;
+    margin-right: 30px;
+    img{
+      width:100%;
+      height: cover;
+    }
+    .card-findoctors-text{
+      color: $blue;
+      height: cover;
+      font-size: 32px;
+      padding: 7%;
+      margin-bottom: 15px;
+    }
+  }
+}

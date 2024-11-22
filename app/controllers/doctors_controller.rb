@@ -1,8 +1,13 @@
 class DoctorsController < ApplicationController
   def index
     if params[:query].present?
-      sql_query = Docotors.where("specialization @@ ?", "%#{params[query]}%")
-      @doctors = sql_query
+      sql_subquery = <<~SQL
+        doctor.specialization @@ :query
+        OR doctor.availability @@ :query
+        OR doctor.location @@ :query
+        OR doctor.languages @@ :query
+      SQL
+      @doctors = @doctors.joins(:language_ability).where(sql_subquery, query: "%#{params[:query]}%")
     else
       @doctors = Doctor.all
     end

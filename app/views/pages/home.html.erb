@@ -81,21 +81,25 @@
     </div>
     <div class="services-cards">
       <!--Here goes the "services" card-->
-      <div class="services-card-online">
-        <%= image_tag "online_card.png"%>
-        <div class="card-online-text">
-          Online doctors consultation
+      <%= link_to doctors_path do %>
+        <div class="services-card-online">
+          <%= image_tag "online_card.png"%>
+          <div class="card-online-text">
+            Online doctors consultation
+          </div>
         </div>
-      </div>
+      <%end%>
       <!--Here goes the "findoctors" card-->
-      <div class="findoctors-card">
-        <%= image_tag "findoctors.png"%>
-        <div class="card-findoctors-text">
-          Find doctors <br> near you
+      <%= link_to doctors_path do %>
+        <div class="findoctors-card">
+          <%= image_tag "findoctors.png"%>
+          <div class="card-findoctors-text">
+            Find doctors <br> near you
+          </div>
         </div>
-      </div>
+      <%end%>
     </div>
-
   </div>
 </div>
 <!--Here goes the application/footer-->
+

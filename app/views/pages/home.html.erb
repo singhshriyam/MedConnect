@@ -6,7 +6,7 @@
       <p>We make accessing quality medical care easy, secure, and hassle-free. Book consultations with trusted doctors, get prescriptions, and prioritise your health—all from the comfort of your home.</p>
     </div>
     <div class="banner-bag-img">
-      <%# <%= image_tag "stethoscope.png" %>
+      <%= image_tag "stethoscope.png" %>
     </div>
   </div>
   <!--Here goes the about-->
@@ -81,8 +81,8 @@
     </div>
     <div class="services-cards">
       <!--Here goes the "services" card-->
-      <%= link_to doctors_path do %>
-        <div class="services-card-online">
+      <%= link_to doctors_path, class:"services-card-online" do %>
+        <div>
           <%= image_tag "online_card.png"%>
           <div class="card-online-text">
             Online doctors consultation
@@ -90,8 +90,8 @@
         </div>
       <%end%>
       <!--Here goes the "findoctors" card-->
-      <%= link_to doctors_path do %>
-        <div class="findoctors-card">
+      <%= link_to doctors_path, class:"findoctors-card" do %>
+        <div>
           <%= image_tag "findoctors.png"%>
           <div class="card-findoctors-text">
             Find doctors <br> near you
@@ -102,4 +102,3 @@
   </div>
 </div>
 <!--Here goes the application/footer-->
-

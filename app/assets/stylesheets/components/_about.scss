@@ -1,16 +1,21 @@
 .about {
   height: 600px;
-  width: 1200px;
+  width: 80%;
   margin: auto;
   border-radius: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 75%;
-  left: 11%;
+  top: -75px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: white;
   opacity: 60%;
   display: flex;
+}
+
+.about-banner{
+  position: relative;
 }
 
 .about img {
@@ -27,13 +32,17 @@
   padding-right: 80px;
   text-align: center;
 }
+.about-title{
+  position: relative;
+}
 .about-text h3 {
   font-size: 36px;
   font-family: 'Homemade Apple', serif;
   color: #008C99;
   position: absolute;
-  top: 120px;
-  left: 780px;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -60%);
 }
 .about-text h1 {
   font-size: 64px;

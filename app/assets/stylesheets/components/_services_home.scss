@@ -1,0 +1,73 @@
+.services {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  width: 80%;
+  height: 500px;
+  background: white;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  display: flex;
+}
+
+.services-text{
+  margin: 3%;
+  width: 50%;
+  height: cover;
+  color: grey;
+  font-size: 18px;
+  h1{
+    font-size: 57px;
+  }
+}
+.services-cards{
+  width: 50%;
+  height: cover;
+  display: flex;
+
+  .services-card-online{
+    width: 50%;
+    height: cover;
+    background-color: $back;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    margin-right: 30px;
+    text-decoration: none;
+    img{
+      width:100%;
+    }
+    .card-online-text{
+      color: $blue;
+      font-size: 32px;
+    }
+  }
+  .services-card-online:hover{
+    transform: scale(1.07);
+    transition: transform 0.7s ease, color 0.7s ease;
+  }
+  .findoctors-card{
+    width: 50%;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    background-color: $back;
+    margin-right: 30px;
+    text-decoration: none;
+    img{
+      width:100%;
+      height: cover;
+    }
+    .card-findoctors-text{
+      color: $blue;
+      font-size: 32px;
+    }
+  }
+  .findoctors-card:hover{
+    transform: scale(1.07);
+    transition: transform 0.7s ease, color 0.7s ease;
+  }
+
+}

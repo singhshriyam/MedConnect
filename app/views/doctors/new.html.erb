@@ -1,0 +1,60 @@
+<div class="container mt-5">
+    <h1 class="mb-4">Register a Doctor</h1>
+
+    <%= simple_form_for @doctor do |f| %>
+      <!-- First Name -->
+      <div class="mb-3">
+        <%= f.input :first_name, label: "First Name", placeholder: "Enter first name" %>
+      </div>
+
+      <!-- Last Name -->
+      <div class="mb-3">
+        <%= f.input :last_name, label: "Last Name", placeholder: "Enter last name" %>
+      </div>
+
+      <!-- Experience -->
+      <div class="mb-3">
+        <%= f.input :experience, label: "Experience (years)", placeholder: "Enter experience in years" %>
+      </div>
+
+      <!-- Specialization -->
+      <div class="mb-3">
+        <%= f.input :specialization, label: "Specialization", placeholder: "Enter specialization" %>
+      </div>
+
+      <!-- City -->
+      <div class="mb-3">
+        <%= f.input :city, label: "City", placeholder: "Enter city" %>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <%= f.input :description, label: "Description", as: :text, placeholder: "Write a brief description", rows: 5 %>
+      </div>
+
+      <!-- Education -->
+      <div class="mb-3">
+        <%= f.input :education, label: "Education", placeholder: "Enter education details" %>
+      </div>
+
+      <!-- Availability -->
+      <div class="mb-3">
+        <%= f.input :availability, label: "Availability", placeholder: "Enter availability" %>
+      </div>
+
+      <!-- Price Per Hour -->
+      <div class="mb-3">
+        <%= f.input :price_per_hour, label: "Price Per Hour (€)", placeholder: "Enter price per hour" %>
+      </div>
+
+      <!-- Language Abilities -->
+      <div class="mb-3">
+        <%= f.input :languages, label: "Languages Spoken", placeholder: "Enter languages" %>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mb-3">
+        <%= f.button :submit, "Create Doctor", class: "btn btn-doc" %>
+      </div>
+    <% end %>
+  </div>

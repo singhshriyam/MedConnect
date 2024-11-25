@@ -1,21 +1,22 @@
 .location {
   display: flex;
-  width: 1200px;
+  width: 80%;
   height: 50px;
   margin-top: 100px;
   margin-bottom: 100px;
-  margin-left: 11%;
-  margin-right: 11%;
+  margin-left: 10%;
+  margin-right: 10%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #008C99;
   border-radius: 10px;
   justify-content: end;
+  position: relative;
 }
 .location img {
   position: absolute;
   height: 100px;
-  top: 1710px;
-  left: 200px;
+  top: -120%;
+  left: 75px;
 }
 
 .location h3 {

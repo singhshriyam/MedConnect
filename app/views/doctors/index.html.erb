@@ -1,6 +1,31 @@
-<h1>Doctors</h1>
+<h1 class="doctor-index-h1">Doctors</h1>
+<h2 class="doctor-index-h2">Please choose a doctor</h2>
 
-<% @doctors.each do |doctor| %>
-  <p><%= doctor.full_name %></p>
-  <%= link_to "appointments", doctor_appointments_path(doctor) %>
-<% end %>
+<div class="doc-index-big-div">
+  <% @doctors.each do |doctor| %>
+    <div class="doctor-card-frame">
+      <h3 class="doctor-last_name"><%= "Dr. #{doctor.last_name}" %></h3>
+      <div class="doctor-image-information-button">
+        <%= image_tag "#{doctor.first_name}_#{doctor.last_name}", class: "doctor-image" %>
+        <div class="information-button">
+          <div class="pees">
+            <div class="specialization-div">
+              <p class="sec-headings-p">Specialization:</p>
+              <p class="sec-values-p"><%= doctor.specialization %></p>
+            </div>
+            <div class="specialization-div">
+              <p class="sec-headings-p">Experience:</p>
+              <p class="sec-values-p"><%= doctor.experience %> Years</p>
+            </div>
+            <div class="specialization-div">
+              <p class="sec-headings-p">City:</p>
+              <p class="sec-values-p"><%= doctor.city %></p>
+            </div>
+          </div>
+          <%= link_to doctors_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
+        </div>
+      </div>
+    </div>
+  <% end  %>
+</div>
+

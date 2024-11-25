@@ -10,12 +10,13 @@
   background-color: #008C99;
   border-radius: 10px;
   justify-content: end;
+  position: relative;
 }
 .location img {
   position: absolute;
   height: 100px;
-  top: 1710px;
-  left: 300px;
+  top: -120%;
+  left: 75px;
 }
 
 .location h3 {

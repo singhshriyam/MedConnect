@@ -1,4 +1,14 @@
 
 <h1 class="doctor_index_h1">Doctors</h1>
 <h2>Please choose a doctor</h2>
+<% @doctors.each do |doctor| %>
+  <div>
+    <%= doctor.last_name %>
+    <%= doctor.specialization %>
+    <%= doctor.experience %>
+    <%= doctor.city %>
+    <%= doctor.price_per_hour %>
 
+    <%= link_to 'View', doctor_path(doctor) %>
+  </div>
+<% end %>

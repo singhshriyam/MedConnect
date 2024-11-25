@@ -1,3 +1,3 @@
 class Language < ApplicationRecord
-  belongs_to :language_ability
+  # belongs_to :language_ability
 end

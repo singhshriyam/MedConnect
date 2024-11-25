@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def getintouch
   end
+
+  def about
+  end
 end

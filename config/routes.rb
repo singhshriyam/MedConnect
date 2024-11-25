@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get "profile", to: "pages#profile"
   get "getintouch", to: "pages#getintouch"
-  
+  get "about", to: "pages#about"
+
   # Defines the root path route ("/")
   # root "posts#index"
   resources :doctors, only: [:index, :show, :update, :new, :create]

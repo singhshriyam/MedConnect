@@ -1,5 +1,74 @@
-<% if user_signed_in? %>
-  <h1>Welcome, <%= current_user.first_name %>!</h1>
-<% else %>
-  <h1>Please <a href="<%= new_user_session_path %>">log in</a>.</h1>
-<% end %>
+<div class="profile-container">
+  <h2>Account Information</h2>
+
+  <!-- Profile Picture Section -->
+  <div class="profile-picture">
+    <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="local_img" style="border-radius: 10px">
+  </div>
+
+  <!-- Profile Information Section -->
+  <div class="profile-info">
+    <div class="profile-item">
+      <label for="name">Name:</label>
+      <span id="name"><%= current_user.first_name %></span>
+    </div>
+
+    <div class="profile-item">
+      <label for="email">Email Address:</label>
+      <span id="email"><%= current_user.email %></span>
+    </div>
+
+    <div class="profile-item">
+      <label for="password">Password:</label>
+      <span id="password"><%= current_user.password %></span>
+    </div>
+
+    <div class="profile-item">
+      <label for="dob">Date of Birth:</label>
+      <span id="dob"><%= current_user.year_of_birth %></span>
+    </div>
+
+    <!-- Blood Group Field (Only Show if Present) -->
+    <% if current_user.blood_group.present? %>
+      <div class="profile-item">
+        <label for="blood_group">Blood Group:</label>
+        <span id="blood_group"><%= current_user.blood_group %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="blood_group">Blood Group:</label>
+        <span id="blood_group">N/A</span>
+      </div>
+    <% end %>
+
+    <!-- Gender Field (Only Show if Present) -->
+    <% if current_user.gender.present? %>
+      <div class="profile-item">
+        <label for="gender">Gender:</label>
+        <span id="gender"><%= current_user.gender %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="gender">Gender:</label>
+        <span id="gender">N/A</span>
+      </div>
+    <% end %>
+
+    <!-- Language Field (Only Show if Present) -->
+    <% if current_user.language.present? %>
+      <div class="profile-item">
+        <label for="language">Language:</label>
+        <span id="language"><%= current_user.language %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="language">Language:</label>
+        <span id="language">N/A</span>
+      </div>
+    <% end %>
+  </div>
+  <div class="profile-edit">
+    <%= link_to "register as a doctor", new_doctor_path, class: "btn btn-doc" %>
+    <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn btn-doc" %>
+  </div>
+</div>

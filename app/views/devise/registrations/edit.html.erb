@@ -1,12 +1,11 @@
 <div class="container py-5">
-  <h1 class="row justify-content-center mb-5 mt-5">Edit <%= resource_name.to_s.humanize %></h1>
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
       <div class="card shadow-sm">
         <div class="card-header text-center bg-primary text-white">
-          <h3>Edit Account</h3>
+          <h3 class="mt-2">Edit Account</h3>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-white">
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" }) do |f| %>
             <%= f.error_notification %>
 
@@ -49,18 +48,18 @@
         </div>
       </div>
       <!-- Cancel Account -->
-      <div class="card mt-4 shadow-sm">
-        <div class="card-header text-center bg-danger text-white">
+      <div class="mt-4 shadow-sm bg-white">
+        <div class="card-header text-center bg-primary text-white">
           <h3>Cancel Account</h3>
         </div>
         <div class="card-body text-center">
           <p class="mb-4">Unhappy? You can cancel your account below.</p>
-          <%= button_to "Cancel my account", registration_path(resource_name), class: "btn btn-danger w-100", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+          <%= button_to "Cancel my account", registration_path(resource_name), class: "btn btn-doc mb-3", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
         </div>
       </div>
       <!-- Back Link -->
       <div class="text-center mt-3">
-        <%= link_to "Back", :back, class: "btn btn-secondary" %>
+        <%= link_to "Back", :back, class: "btn btn-doc" %>
       </div>
     </div>
   </div>

@@ -1,3 +1,4 @@
 class Language < ApplicationRecord
-  # belongs_to :language_ability
+  has_many :language_abilities
+  has_many :doctors, through: :language_abilities
 end

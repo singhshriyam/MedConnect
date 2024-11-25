@@ -7,6 +7,11 @@
     <%= doctor.specialization %>
     <%= doctor.experience %>
     <%= doctor.city %>
+    <ul>
+      <% doctor.languages.each do |language| %>
+        <li> <%= language.name %></li>
+      <% end %>
+    </ul>
     <%= doctor.price_per_hour %>
 
     <%= link_to 'View', doctor_path(doctor) %>

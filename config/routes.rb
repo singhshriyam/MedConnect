@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :doctors, only: [:index, :show, :update, :new, :create]
   resources :doctors do
-    resources :appointments, only: [:index, :new, :create, :show]
+    resources :appointments, only: [:new, :create]
   end
 
+  resources :appointments, only: [:index, :show]
 end

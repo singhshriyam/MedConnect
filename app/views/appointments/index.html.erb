@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Appointments</h1>
+  <h2>Appointments as a user: </h2>
+
+  <% @appointments_as_user.each do |appointment| %>
+    <div class="p-3 card m-3">
+      <p><strong>Doctor: </strong><%= appointment.doctor.full_name %></p>
+      <p><strong>Message: </strong><%= appointment.message %></p>
+      <p><strong>Symptoms: </strong><%= appointment.symptoms %></p>
+      <p><strong>Medical History: </strong><%= appointment.medical_history %></p>
+      <p><strong>User name: </strong><%= appointment.user.email %></p>
+    </div>
+      <%= link_to "appointment details", appointment_path(appointment), class: "btn btn-secondary" %>
+  <% end %>
+
+  <h2>Appointments as a Doctor: </h2>
+  <% @appointments_as_doctor.each do |appointment| %>
+    <div class="p-3 card m-3">
+      <p><strong>User: </strong><%= appointment.user.email %></p>
+      <p><strong>Message: </strong><%= appointment.message %></p>
+      <p><strong>Symptoms: </strong><%= appointment.symptoms %></p>
+      <p><strong>Medical History: </strong><%= appointment.medical_history %></p>
+      <p><strong>Scheduled Time: </strong><%= appointment.starts_at %> - <%= appointment.ends_at %></p>
+    </div>
+      <%= link_to "appointment details", appointment_path(appointment), class: "btn btn-secondary" %>
+  <% end %>
+
+</div>

@@ -16,4 +16,24 @@ class DoctorsController < ApplicationController
   def show
     @doctor = Doctor.find(params[:id])
   end
+
+  def new
+    @doctor = Doctor.new
+  end
+
+  def create
+    @doctor = Doctor.new(doctor_params)
+    @doctor.user = current_user
+    if @doctor.save
+      redirect_to @doctor, notice: "Doctor created successfully!"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def doctor_params
+    params.require(:doctor).permit(:name, :specialization, :email, :phone, :user_id)
+  end
 end

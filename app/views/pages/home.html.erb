@@ -34,6 +34,16 @@
       </div>
     </div>
   </div>
+
+  <!--Here goes the language search-->
+  <div>
+    <h3>Search by language</h3>
+    <%= form_with url: doctors_path, method: :get, local: true, class: "search-form" do %>
+      <%= text_field_tag :location, nil, placeholder: "Enter the language", class: "form-control location-input" %>
+      <%= submit_tag "Search", class: "btn btn-doc search-btn" %>
+    <% end %>
+  </div>
+
   <!--Here goes the categories-->
   <div class="categories">
 

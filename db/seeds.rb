@@ -41,7 +41,7 @@ Doctor.create!(
 
 Doctor.create!(
   first_name: "Judit",
-  last_name: " Borrás Puig",
+  last_name: "Borras",
   experience: 12,
   specialization: "pediatry",
   city: "Hannover",
@@ -59,7 +59,7 @@ Doctor.create!(
   first_name: "Aditi",
   last_name: "Shriyam",
   experience: 10,
-  specialization: "clinical psychology",
+  specialization: "psychology",
   city: "Berlin",
   description: "I graduated from the University of Delhi in 2013 and made my residency at
   Fortis Flt Lt Rajan Dhall Hospital. Later I moved to Berlin, BE and recertified as a
@@ -135,7 +135,7 @@ Doctor.create!(
   first_name: "José",
   last_name: "Copeti",
   experience: 10,
-  specialization: "Family Medicine",
+  specialization: "Medicine",
   city: "Frankfurt",
   description: "I graduated from Universidade Federal do Rio de Janeiro in 2013 and made my residency at
   Hospital São Lucas Copacabana. Then I recertified as a docotr in Family Medicine at Charite Universitätsmedizin Berlin
@@ -150,7 +150,7 @@ Doctor.create!(
   first_name: "Emre",
   last_name: "Ebeturk",
   experience: 17,
-  specialization: "Family Practice Sports Medicine",
+  specialization: "Sports",
   city: "Frankfurt",
   description: "I graduated from Cambridge University in 2016 and made my residency at
   Cabridge Universoty hospital. After that I moved to Frankfurt, NRW. I now have worked at Le Krankenwagon Frankfurt for

@@ -2,11 +2,15 @@
 <h2 class="doctor-index-h2">Please choose a doctor</h2>
 
 <div class="doc-index-big-div">
-  <% @doctors.each do |doctor| %>
+  <% @doctors.uniq { |doctor| "#{doctor.first_name} #{doctor.last_name}" }.each do |doctor| %>
     <div class="doctor-card-frame">
       <h3 class="doctor-last_name"><%= "Dr. #{doctor.last_name}" %></h3>
       <div class="doctor-image-information-button">
-        <%= image_tag "#{doctor.first_name}_#{doctor.last_name}", class: "doctor-image" %>
+        <% if doctor.photo.attached? %>
+          <%= cl_image_tag doctor.photo.key, height: 170, width: 185 %>
+        <% else %>
+          <img class="doctor-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="local_img" >
+        <% end %>
         <div class="information-button">
           <div class="pees">
             <div class="specialization-div">
@@ -22,10 +26,9 @@
               <p class="sec-values-p"><%= doctor.city %></p>
             </div>
           </div>
-          <%= link_to doctors_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
+          <%= link_to doctor_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
         </div>
       </div>
     </div>
   <% end  %>
 </div>
-

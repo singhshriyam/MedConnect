@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   attr_accessor :gender, :blood_group, :phone_number, :timezone, :language, :address
 
+  has_one_attached :photo
   has_many :messages
   has_many :appointments, dependent: :destroy
   has_many :doctors

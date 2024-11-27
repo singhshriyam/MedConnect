@@ -278,7 +278,7 @@ puts "Seeds from LeWagon created!"
 
 
 puts "seeding languages"
-20.times do
+30.times do
   Language.create!(name: Faker::Nation.language)
 end
 

@@ -3,7 +3,11 @@
 
   <!-- Profile Picture Section -->
   <div class="profile-picture">
-    <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="local_img" style="border-radius: 10px">
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, alt: "Profile Picture" %>
+    <% else %>
+      <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="Default Profile Picture">
+    <% end %>
   </div>
 
   <!-- Profile Information Section -->
@@ -68,7 +72,117 @@
     <% end %>
   </div>
   <div class="profile-edit">
-    <%= link_to "register as a doctor", new_doctor_path, class: "btn btn-doc" %>
+    <%= link_to "register a new doctor", new_doctor_path, class: "btn btn-doc" %>
     <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn btn-doc" %>
   </div>
 </div>
+
+<div class="profile-container">
+  <h2>Medical Information</h2>
+  <div class="profile-info">
+    <!-- allergies Field (Only Show if Present) -->
+    <% if current_user.allergies.present? %>
+      <div class="profile-item">
+        <label for="allergies">Allergies:</label>
+        <span id="allergies"><%= current_user.allergies %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="allergies">Allergies:</label>
+        <span id="allergies">N/A</span>
+      </div>
+    <% end %>
+
+    <!-- current medication (Only Show if Present) -->
+    <% if current_user.c_medication.present? %>
+      <div class="profile-item">
+        <label for="c_medication">Current med:</label>
+        <span id="c_medication"><%= current_user.c_medication %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="c_medication">Current med:</label>
+        <span id="c_medication">N/A</span>
+      </div>
+    <% end %>
+
+    <!-- past medication Field (Only Show if Present) -->
+    <% if current_user.p_medication.present? %>
+      <div class="profile-item">
+        <label for="p_medication">Past medication:</label>
+        <span id="p_medication"><%= current_user.p_medication %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="p_medication">Past medication:</label>
+        <span id="p_medication">N/A</span>
+      </div>
+    <% end %>
+
+    <!-- surgeries Field (Only Show if Present) -->
+    <% if current_user.surgeries.present? %>
+      <div class="profile-item">
+        <label for="surgeries">Surgeries:</label>
+        <span id="surgeries"><%= current_user.surgeries %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="surgeries">Surgeries:</label>
+        <span id="surgeries">N/A</span>
+      </div>
+    <% end %>
+
+    <!-- injuries Field (Only Show if Present) -->
+    <% if current_user.injuries.present? %>
+      <div class="profile-item">
+        <label for="injuries">Injuries:</label>
+        <span id="injuries"><%= current_user.injuries %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="injuries">Injuries:</label>
+        <span id="injuries">N/A</span>
+      </div>
+    <% end %>
+
+    <% if current_user.chronic_diseases.present? %>
+      <div class="profile-item">
+        <label for="chronic_diseases">Chronic Diseases:</label>
+        <span id="chronic_diseases"><%= current_user.chronic_diseases %></span>
+      </div>
+    <% else %>
+      <div class="profile-item">
+        <label for="chronic_diseases">Chronic Diseases:</label>
+        <span id="chronic_diseases">N/A</span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<% if current_user.doctor.present? %>
+  <h2 class="text-center">Doctor's profile associated with this profile</h2>
+    <ul>
+      <%= link_to doctor_path(current_user.doctor), style: "text-decoration: none; color: inherit;" do %>
+        <div class="doctor-container">
+          <ul>
+            <strong class="text">Name:</strong> Dr. <%= current_user.doctor.last_name %><br>
+            <strong class="text">Specialization:</strong> <%= current_user.doctor.specialization %><br>
+            <strong class="text">Experience:</strong> <%= current_user.doctor.experience %><br>
+            <strong class="text">Description:</strong> <%= current_user.doctor.description %><br>
+          </ul>
+          <% if current_user.doctor.photo.attached? %>
+            <%= cl_image_tag current_user.doctor.photo.key, alt: "Profile Picture", style: "width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" %>
+          <% elsif current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, alt: "Profile Picture", style: "width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" %>
+          <% else %>
+            <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="Default Profile Picture", style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" >
+          <% end %>
+          <%# <%= link_to "Edit my doctor's profile", edit_doctor_path(current_user), class: "btn btn-doc" %>
+        </div>
+      <% end %>
+    </ul>
+<% else %>
+  <p>You are not registered as a doctors yet.</p>
+<% end %>

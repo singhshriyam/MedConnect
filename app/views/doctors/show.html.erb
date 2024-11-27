@@ -1,1 +1,8 @@
 <h1>Hellow</h1>
+<%= @doctor.last_name %>
+<p>Languages:</p>
+<ul>
+  <% @doctor.languages.each do |language| %>
+    <li><%= language.name %></li>
+  <% end %>
+</ul>

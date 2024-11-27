@@ -68,7 +68,8 @@
     <% end %>
   </div>
   <div class="profile-edit">
-    <%= link_to "register as a doctor", new_doctor_path, class: "btn btn-doc" %>
+    <%= link_to "Register as a doctor", new_doctor_path, class: "btn btn-doc" %>
     <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn btn-doc" %>
+    <%= link_to 'All my appointments', appointments_path, class: 'btn btn-doc' %>
   </div>
 </div>

@@ -15,22 +15,17 @@
               <%= f.input_field :email, class: "form-control", placeholder: "Enter your email", required: true, autofocus: true %>
             </div>
 
-            <!-- Pending Confirmation -->
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <p class="text-warning">Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-            <% end %>
-
             <!-- Password -->
             <div class="mb-3">
               <%= f.label :password, "New Password", class: "form-label" %>
-              <%= f.input_field :password, class: "form-control", placeholder: "Leave it blank if you don't want to change it", required: false, autocomplete: "new-password" %>
+              <%= f.input_field :password, class: "form-control", placeholder: "Leave it blank if you don't want to change it" %>
               <small class="form-text text-muted">Leave it blank if you don't want to change it</small>
             </div>
 
             <!-- Password Confirmation -->
             <div class="mb-3">
               <%= f.label :password_confirmation, "Confirm Password", class: "form-label" %>
-              <%= f.input_field :password_confirmation, class: "form-control", placeholder: "Confirm your new password", required: false, autocomplete: "new-password" %>
+              <%= f.input_field :password_confirmation, class: "form-control", placeholder: "Confirm your new password" %>
             </div>
 
             <!-- Current Password -->
@@ -39,6 +34,20 @@
               <%= f.input_field :current_password, class: "form-control", placeholder: "Enter your current password", required: true, autocomplete: "current-password" %>
               <small class="form-text text-muted">We need your current password to confirm your changes</small>
             </div>
+
+            <div class="mb-3">
+              <%= f.label :photo, "Update profile picture", class: "form-label" %>
+              <%= f.input_field :photo, class: "form-control", placeholder: "upload image", required: false %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :blood_group, "Update blood group", class: "form-label" %>
+              <%= f.input_field :blood_group, class: "form-control", placeholder: "blood group", required: false %>
+            </div>
+
+            <%= f.input :year_of_birth,
+                    required: false,
+                    input_html: { autocomplete: "new-age" } %>
 
             <!-- Submit Button -->
             <div class="text-center">

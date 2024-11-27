@@ -1,1 +1,24 @@
-<h1>Hellow</h1>
+<div class="container my-4">
+  <div class="card shadow">
+    <div class="card-body">
+      <h1 class="card-title text-center">Doctor Profile</h1>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>First Name:</strong> <%= @doctor.first_name %></li>
+        <li class="list-group-item"><strong>Last Name:</strong> <%= @doctor.last_name %></li>
+        <li class="list-group-item"><strong>Experience:</strong> <%= @doctor.experience %> years</li>
+        <li class="list-group-item"><strong>Specialization:</strong> <%= @doctor.specialization %></li>
+        <li class="list-group-item"><strong>City:</strong> <%= @doctor.city %></li>
+        <li class="list-group-item"><strong>Description:</strong> <%= @doctor.description %></li>
+        <li class="list-group-item"><strong>Education:</strong> <%= @doctor.education %></li>
+        <li class="list-group-item"><strong>Availability:</strong> <%= @doctor.availability %></li>
+        <li class="list-group-item"><strong>Price per Hour:</strong> $<%= @doctor.price_per_hour %></li>
+        <li class="list-group-item"><strong>User ID:</strong> <%= @doctor.user_id %></li>
+      </ul>
+      <div class="text-center mt-3">
+        <%= link_to 'Back to Doctors', doctors_path, class: 'btn btn-primary' %>
+        <%# The button below is important for the appointment booking process flow %>
+        <%= link_to 'Book an Appointment', new_doctor_appointment_path(@doctor), class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+</div>

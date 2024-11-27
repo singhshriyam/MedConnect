@@ -6,7 +6,7 @@
     <div class="doctor-card-frame">
       <h3 class="doctor-last_name"><%= "Dr. #{doctor.last_name}" %></h3>
       <div class="doctor-image-information-button">
-        <%= image_tag "#{doctor.first_name}_#{doctor.last_name}", class: "doctor-image" %>
+        <%#= image_tag "#{doctor.first_name}_#{doctor.last_name}", class: "doctor-image" %>
         <div class="information-button">
           <div class="pees">
             <div class="specialization-div">
@@ -22,10 +22,9 @@
               <p class="sec-values-p"><%= doctor.city %></p>
             </div>
           </div>
-          <%= link_to doctors_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
+          <%= link_to doctor_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
         </div>
       </div>
     </div>
   <% end  %>
 </div>
-

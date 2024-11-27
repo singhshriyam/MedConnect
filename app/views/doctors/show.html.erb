@@ -1,1 +1,49 @@
-<h1>Hellow</h1>
+<div class="doctor-container">
+  <!--card 1 - doctor's picture and description-->
+  <div class="picture-card">
+    <div class="dr-img">
+      <%# <% if @doctor.user.photo.attached? %>
+        <%# <%= cl_image_tag @doctor.user.photo.key %>
+      <%# <% else %>
+        <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*">
+      <%# <% end %>
+    </div>
+      <div class="picture-card-text">
+        <h1 class="zain-bold"><%= @doctor.full_name %></h1>
+        <h1><%= @doctor.specialization %></h1>
+        <h3>Location: <%= @doctor.city %></h3>
+        <h3>Experience: <%= @doctor.experience %> years</h3>
+      </div>
+  </div>
+  <!--card 2 - doctor services and availability card-->
+  <div class="dr-service-card">
+    <div class="service-text">
+      <h1 class="zain-bold">SERVICES</h1>
+      <%= @doctor.description %>
+    </div>
+    <div class="availability">
+      <h1 class="zain-bold">AVAILABILITY</h1><%= @doctor.availability %>
+      <br><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%>
+    </div>
+    <div class="price">
+      <h2>Price per hour </h2><br><%= @doctor.price_per_hour %> €/h
+    </div>
+  </div>
+  <!--card 3 - languages card-->
+  <div class="languages-card">
+    <h3 class="zain-bold">Languages</h3>
+    <div class="languages">
+      <%@doctor.languages.each do |language| %>
+        <div class="#language"><%= language.name %></div>
+      <% end %>
+    </div>
+  </div>
+  <!--card 4- education card-->
+  <div class="education-card">
+    <h3 class="zain-bold">Education</h3>
+    <div class="text">
+      <%=@doctor.education%>
+    </div>
+  </div>
+
+</div>

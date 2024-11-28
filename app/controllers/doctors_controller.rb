@@ -14,6 +14,8 @@ class DoctorsController < ApplicationController
   end
 
   def show
+    @description_list = @doctor.description.split(/(?<=\.)|\n/).map(&:strip).reject(&:empty?)
+    @availability_list = @doctor.formatted_availability
     @doctor = Doctor.find_by(id: params[:id])
     if @doctor.nil?
       redirect_to doctors_path, alert: "Doctor not found."

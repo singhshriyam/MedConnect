@@ -13,3 +13,20 @@
   font-weight: bold;
   transition: transform 0.8s ease, color 0.8s ease;
 }
+
+.btn-appointment { //@ doctors#show
+  text-decoration: none;
+  color: $back;
+  background-color: $blue;
+  padding: 5px 24px;
+  border-radius: 7px;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-appointment:hover { //@ doctors#show
+  opacity: 1;
+  background-color: $blue;
+  font-weight: bolder;
+  transition: transform 0.8s ease, color 0.8s ease;
+}

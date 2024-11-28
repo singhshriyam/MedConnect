@@ -98,7 +98,7 @@ Doctor.create!(
   first_name: user4.first_name,
   last_name: user4.last_name,
   experience: 10,
-  specialization: "clinical psychology",
+  specialization: "psychology",
   city: "Berlin",
   description: "I graduated from the University of Delhi in 2013 and made my residency at
   Fortis Flt Lt Rajan Dhall Hospital. Later I moved to Berlin, BE and recertified as a
@@ -214,7 +214,7 @@ Doctor.create!(
   first_name: user9.first_name,
   last_name: user9.last_name,
   experience: 10,
-  specialization: "Family Medicine",
+  specialization: "Medicine",
   city: "Frankfurt",
   description: "I graduated from Universidade Federal do Rio de Janeiro in 2013 and made my residency at
   Hospital São Lucas Copacabana. Then I recertified as a docotr in Family Medicine at Charite Universitätsmedizin Berlin
@@ -237,7 +237,7 @@ Doctor.create!(
   first_name: user10.first_name,
   last_name: user10.last_name,
   experience: 17,
-  specialization: "Family Practice Sports Medicine",
+  specialization: "Sports",
   city: "Frankfurt",
   description: "I graduated from Cambridge University in 2016 and made my residency at
   Cabridge Universoty hospital. After that I moved to Frankfurt, NRW. I now have worked at Le Krankenwagon Frankfurt for
@@ -278,7 +278,7 @@ puts "Seeds from LeWagon created!"
 
 
 puts "seeding languages"
-10.times do
+30.times do
   Language.create!(name: Faker::Nation.language)
 end
 

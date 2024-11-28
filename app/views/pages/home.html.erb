@@ -34,6 +34,7 @@
       </div>
     </div>
   </div>
+
   <!--Here goes the categories-->
   <div class="categories">
 
@@ -68,11 +69,19 @@
   <div class="location">
     <%= image_tag "locationpin.png" %>
     <h3>Search location</h3>
-    <%= form_with url: doctors_path, method: :get, local: true, class: "search-form" do %>
-      <%= text_field_tag :location, nil, placeholder: "Enter your city", class: "form-control location-input" %>
+    <%= form_with url: doctors_path, method: :get, class: "search-form" do %>
+      <%= text_field_tag :city, nil, placeholder: "Enter your city", class: "form-control location-input" %>
       <%= submit_tag "Search", class: "btn btn-doc search-btn" %>
     <% end %>
   </div>
+  <div class="location">
+    <h3>Search by language</h3>
+    <%= form_with url: doctors_path, method: :get,class: "search-form" do %>
+      <%= text_field_tag :language, nil, placeholder: "Enter the language", class: "form-control location-input" %>
+      <%= submit_tag "Search", class: "btn btn-doc search-btn" %>
+    <% end %>
+  </div>
+
   <!--Here goes the services-->
   <div class="services">
     <div class="services-text">

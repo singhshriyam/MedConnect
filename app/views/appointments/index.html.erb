@@ -1,0 +1,60 @@
+<div class="container my-4">
+  <h1 class="text-center mb-3">Appointments</h1>
+
+  <div class="row" data-controller="appointments-toggle">
+
+    <!-- toggle button -->
+    <div data-action="click->appointments-toggle#toggle" class="col-md-12 m-2 text-center">
+      <button class="btn bg-primary">
+        Toggle View (User/Doctor)
+      </button>
+    </div>
+
+    <%# Appointments as a user section %>
+    <div class="col-md-12" data-appointments-toggle-target="userAppointments">
+      <h2 class="mt-4">Appointments as a User:</h2>
+      <% if @appointments_as_user.any? %>
+        <% @appointments_as_user.each do |appointment| %>
+          <div class="card shadow-sm my-3">
+            <div class="card-header text-white bg-primary">
+              Appointment with Dr. <%= appointment.doctor.full_name %>
+            </div>
+            <div class="card-body">
+              <p><strong>Message:</strong> <%= appointment.message %></p>
+              <p><strong>Symptoms:</strong> <%= appointment.symptoms %></p>
+              <p><strong>Medical History:</strong> <%= appointment.medical_history %></p>
+              <p><strong>User Name:</strong> <%= appointment.user.email %></p>
+              <%= link_to "View Details", appointment_path(appointment), class: "btn btn-outline-primary mt-2", style: "color: #{@blue}; border-color: #{@blue};" %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No appointments found as a user.</p>
+      <% end %>
+    </div>
+
+    <%# Appointments as a doctor section %>
+    <div class="col-md-12" data-appointments-toggle-target="doctorAppointments">
+      <h2 class="mt-4" style="color: <%= $blue %>;">Appointments as a Doctor:</h2>
+      <% if @appointments_as_doctor.any? %>
+        <% @appointments_as_doctor.each do |appointment| %>
+          <div class="card shadow-sm my-3">
+            <div class="card-header text-white bg-primary">
+              Appointment with <%= appointment.user.email %>
+            </div>
+            <div class="card-body">
+              <p><strong>Message:</strong> <%= appointment.message %></p>
+              <p><strong>Symptoms:</strong> <%= appointment.symptoms %></p>
+              <p><strong>Medical History:</strong> <%= appointment.medical_history %></p>
+              <p><strong>Scheduled Time:</strong> <%= appointment.starts_at.strftime("%B %d, %Y %I:%M %p") %> - <%= appointment.ends_at.strftime("%B %d, %Y %I:%M %p") %></p>
+              <%= link_to "View Details", appointment_path(appointment), class: "btn btn-outline-primary mt-2", style: "color: #{@blue}; border-color: #{@blue};" %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No appointments found as a doctor.</p>
+      <% end %>
+    </div>
+
+  </div>
+</div>

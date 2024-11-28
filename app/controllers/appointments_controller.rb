@@ -2,7 +2,8 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @appointments = Appointment.all
+    @appointments_as_user = current_user.appointments
+    @appointments_as_doctor = Appointment.where(doctor: current_user)
   end
 
   def new
@@ -25,7 +26,7 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
-    @doctor = @appointment.doctor
+    # @doctor = @appointment.doctors
   end
 
   private

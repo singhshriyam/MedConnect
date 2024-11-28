@@ -1,0 +1,94 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-10">
+      <div class="card shadow-sm">
+        <div class="card-header text-center bg-primary text-white">
+          <h3 class="mt-2">Register as a Doctor</h3>
+        </div>
+        <div class="card-body bg-white">
+          <%= simple_form_for @doctor, html: { class: "form-horizontal" } do |f| %>
+            <!-- First Name -->
+            <div class="mb-3">
+              <%= f.label :first_name, "First Name", class: "form-label" %>
+              <%= f.input_field :first_name, class: "form-control", input_html: { value: @doctor.first_name || current_user.first_name }, required: true %>
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-3">
+              <%= f.label :last_name, "Last Name", class: "form-label" %>
+              <%= f.input_field :last_name, class: "form-control", input_html: { value: @doctor.last_name || current_user.last_name }, required: true %>
+            </div>
+
+            <!-- Experience -->
+            <div class="mb-3">
+              <%= f.label :experience, "Experience (years)", class: "form-label" %>
+              <%= f.input_field :experience, class: "form-control", placeholder: "Enter experience in years", required: true %>
+            </div>
+
+            <!-- Specialization -->
+            <div class="mb-3">
+              <%= f.label :specialization, "Specialization", class: "form-label" %>
+              <%= f.input_field :specialization, class: "form-control", placeholder: "Enter specialization", required: true %>
+            </div>
+
+            <!-- City -->
+            <div class="mb-3">
+              <%= f.label :city, "City", class: "form-label" %>
+              <%= f.input_field :city, class: "form-control", placeholder: "Enter city", required: true %>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <%= f.label :description, "Description", class: "form-label" %>
+              <%= f.text_area :description, class: "form-control", placeholder: "Write a brief description", rows: 5 %>
+            </div>
+
+            <!-- Education -->
+            <div class="mb-3">
+              <%= f.label :education, "Education", class: "form-label" %>
+              <%= f.input_field :education, class: "form-control", placeholder: "Enter education details", required: true %>
+            </div>
+
+            <!-- Availability -->
+            <div class="mb-3">
+              <%= f.label :availability, "Availability", class: "form-label" %>
+              <%= f.input_field :availability, class: "form-control", placeholder: "Enter availability", required: true %>
+            </div>
+
+            <!-- Price Per Hour -->
+            <div class="mb-3">
+              <%= f.label :price_per_hour, "Price Per Hour (€)", class: "form-label" %>
+              <%= f.input_field :price_per_hour, class: "form-control", placeholder: "Enter price per hour", required: true %>
+            </div>
+
+            <!-- Language Abilities -->
+            <div class="mb-3">
+              <%= f.label :language, "Languages Spoken", class: "form-label" %>
+              <%= f.text_field :languages, placeholder: "Enter the languages you speak.", class: "form-control", required: true %>
+            </div>
+
+            <!-- Profile Picture -->
+            <div class="mb-3">
+              <% if current_user.photo.attached? %>
+                <% @doctor.photo.attach(current_user.photo.blob) %>
+              <% else %>
+                <div class="form-group">
+                  <%= f.input :photo, label: "Photo", input_html: { value: @doctor.photo || current_user.photo } %>
+                </div>
+              <% end %>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+              <%= f.submit "Create Doctor", class: "btn btn-doc w-100" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <!-- Back Link -->
+      <div class="text-center mt-3">
+        <%= link_to "Back", :back, class: "btn btn-doc" %>
+      </div>
+    </div>
+  </div>
+</div>

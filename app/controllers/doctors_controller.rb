@@ -15,5 +15,7 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    @description_list = @doctor.description.split(/(?<=\.)|\n/).map(&:strip).reject(&:empty?)
+    @availability_list = @doctor.formatted_availability
   end
 end

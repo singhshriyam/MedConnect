@@ -9,29 +9,39 @@
       <%# <% end %>
     </div>
       <div class="picture-card-text">
-        <h1 class="zain-bold"><%= @doctor.full_name %></h1>
-        <h1><%= @doctor.specialization %></h1>
+        <h1 class="zain-bold blue"><%= @doctor.full_name %></h1>
+        <h1>Specialization: <%= @doctor.specialization %></h1>
         <h3>Location: <%= @doctor.city %></h3>
         <h3>Experience: <%= @doctor.experience %> years</h3>
       </div>
   </div>
   <!--card 2 - doctor services and availability card-->
-  <div class="dr-service-card">
-    <div class="service-text">
+  <div class="doctor-service-card">
+    <div class="service">
       <h1 class="zain-bold">SERVICES</h1>
-      <%= @doctor.description %>
+        <ul>
+          <% @description_list.each do |phrase| %>
+            <li><%= phrase %></li>
+          <% end %>
+        </ul>
     </div>
     <div class="availability">
-      <h1 class="zain-bold">AVAILABILITY</h1><%= @doctor.availability %>
-      <br><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%>
+      <h1 class="zain-bold">AVAILABILITY</h1>
+      <div class="schedule">
+        <ul><% @availability_list.each do |availability| %>
+            <li><%= availability %></li>
+            <% end %>
+        </ul>
+      </div>
+      <p><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%></p>
     </div>
     <div class="price">
-      <h2>Price per hour </h2><br><%= @doctor.price_per_hour %> €/h
+      <h2 class="zain-light blue">Price per hour </h2><br><%= @doctor.price_per_hour %> €/h
     </div>
   </div>
   <!--card 3 - languages card-->
   <div class="languages-card">
-    <h3 class="zain-bold">Languages</h3>
+    <h3 class="zain-bold blue">Languages</h3>
     <div class="languages">
       <%@doctor.languages.each do |language| %>
         <div class="#language"><%= language.name %></div>
@@ -40,7 +50,7 @@
   </div>
   <!--card 4- education card-->
   <div class="education-card">
-    <h3 class="zain-bold">Education</h3>
+    <h3 class="zain-bold blue">Education</h3>
     <div class="text">
       <%=@doctor.education%>
     </div>

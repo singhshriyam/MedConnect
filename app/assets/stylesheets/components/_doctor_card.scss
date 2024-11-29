@@ -1,25 +1,38 @@
-.doctor-index-h1{
-  margin: 26px;
-  font-size: 64px;
+.super-big{
+  margin-left: 197px;
+  margin-right: 198px;
 }
 
-.doctor-index-h2{
+.doctor-index-aich1{
+  margin: 26px;
+  font-size: 64px;
+  margin-left: 0;
+  margin-right: 0;
+  color: $blue;
+}
+
+.doctor-index-aich2{
   margin: 26px;
   font-size: 48px;
+  margin-left: 0;
+  margin-right: 0;
+  color: $blue;
+
 }
 
 .doc-index-big-div{
-  margin: 26px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 20px;
+  width: 1525px;
 }
 
 .doctor-card-frame{
-  width: 470px;
+  width: 495px;
   height: 250px;
   border-radius: 5px;
   border: solid 2px $blue;
-  margin: 15px;
 }
 
 .doctor-last_name{
@@ -64,7 +77,7 @@ height: 187px;
   display: flex;
   justify-content: space-between;
   align-items: start;
-  width: 225px;
+  width: 250px;
   margin-bottom: 15px;
 }
 

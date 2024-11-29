@@ -1,34 +1,43 @@
-<h1 class="doctor-index-h1">Doctors</h1>
-<h2 class="doctor-index-h2">Please choose a doctor</h2>
-
-<div class="doc-index-big-div">
-  <% @doctors.uniq { |doctor| "#{doctor.first_name} #{doctor.last_name}" }.each do |doctor| %>
-    <div class="doctor-card-frame">
-      <h3 class="doctor-last_name"><%= "Dr. #{doctor.last_name}" %></h3>
-      <div class="doctor-image-information-button">
-        <% if doctor.photo.attached? %>
-          <%= cl_image_tag doctor.photo.key, height: 170, width: 185 %>
-        <% else %>
-          <img class="doctor-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="local_img" >
-        <% end %>
-        <div class="information-button">
-          <div class="pees">
-            <div class="specialization-div">
-              <p class="sec-headings-p">Specialization:</p>
-              <p class="sec-values-p"><%= doctor.specialization %></p>
+<div class="super-big">
+  <h1 class="doctor-index-aich1">Doctors</h1>
+  <% if params[:city].present? %>
+    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:city] %></h2>
+  <% elsif params[:specialization].present? %>
+    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:specialization] %></h2>
+  <% elsif params[:language].present? %>
+    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:languages] %></h2>
+  <% else %>
+    <h2 class="doctor-index-aich2">Please choose a doctor.</h2>
+  <% end %>
+  <div class="doc-index-big-div">
+    <% @doctors.uniq { |doctor| "#{doctor.first_name} #{doctor.last_name}" }.each do |doctor| %>
+      <div class="doctor-card-frame">
+        <h3 class="doctor-last_name"><%= "Dr. #{doctor.last_name.capitalize}" %></h3>
+        <div class="doctor-image-information-button">
+          <% if doctor.photo.attached? %>
+            <%= cl_image_tag doctor.photo.key, class: "doctor-image" %>
+          <% else %>
+            <img class="doctor-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="local_img" >
+          <% end %>
+          <div class="information-button">
+            <div class="pees">
+              <div class="specialization-div">
+                <p class="sec-headings-p">Specialization:</p>
+                <p class="sec-values-p"><%= doctor.specialization.capitalize %></p>
+              </div>
+              <div class="specialization-div">
+                <p class="sec-headings-p">Experience:</p>
+                <p class="sec-values-p"><%= doctor.experience %> Years</p>
+              </div>
+              <div class="specialization-div">
+                <p class="sec-headings-p">City:</p>
+                <p class="sec-values-p"><%= doctor.city.capitalize %></p>
+              </div>
             </div>
-            <div class="specialization-div">
-              <p class="sec-headings-p">Experience:</p>
-              <p class="sec-values-p"><%= doctor.experience %> Years</p>
-            </div>
-            <div class="specialization-div">
-              <p class="sec-headings-p">City:</p>
-              <p class="sec-values-p"><%= doctor.city %></p>
-            </div>
+            <%= link_to doctor_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
           </div>
-          <%= link_to doctor_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
         </div>
       </div>
-    </div>
-  <% end  %>
+    <% end  %>
+  </div>
 </div>

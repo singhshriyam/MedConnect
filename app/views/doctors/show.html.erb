@@ -1,1 +1,11 @@
-<h1>Hellow</h1>
+<div class="picture-card-text">
+  <h1 class="zain-bold blue"><%= @doctor.last_name %></h1>
+  <h1>Specialization: <%= @doctor.specialization %></h1>
+  <h3>Location: <%= @doctor.city %></h3>
+  <h3>Experience: <%= @doctor.experience %> years</h3>
+  <ul>
+    <% @doctor.languages.each do |language| %>
+      <li> <%= language.name %></li>
+    <% end %>
+  </ul>
+</div>

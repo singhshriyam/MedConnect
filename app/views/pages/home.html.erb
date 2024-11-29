@@ -44,23 +44,23 @@
     <div class="categories-icons">
       <!--Here goes icon1-->
       <div class="category-icon1">
-        <%= image_tag "lungs.png" %>
+      <%= link_to image_tag("lungs.png"), doctors_path(params:{specialization: "pulmonology"})  %>
         <h3>Pulmonologist</h3>
       </div>
       <div class="category-icon2">
-        <%= image_tag "general.png" %>
+        <%= link_to image_tag("general.png"), doctors_path(params:{specialization: "family"})  %>
         <h3>Family</h3>
       </div>
       <div class="category-icon3">
-        <%= image_tag "pediatrician.png" %>
+        <%= link_to image_tag("pediatrician.png"), doctors_path(params:{specialization: "pediatry"})  %>
         <h3>Pediatrician</h3>
       </div>
       <div class="category-icon4">
-        <%= image_tag "phyciatrist.png" %>
-        <h3>Psychiatrist</h3>
+        <%= link_to image_tag("pshyciatrist.png"), doctors_path(params:{specialization: "psychology"})  %>
+        <h3>Psychologist</h3>
       </div>
       <div class="category-icon5">
-        <%= image_tag "skin.png" %>
+      <%= link_to image_tag("skin.png"), doctors_path(params:{specialization: "dermatology"})  %>
         <h3>Dermatologist</h3>
       </div>
     </div>

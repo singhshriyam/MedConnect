@@ -1,11 +1,63 @@
-<div class="picture-card-text">
-  <h1 class="zain-bold blue"><%= @doctor.last_name %></h1>
-  <h1>Specialization: <%= @doctor.specialization %></h1>
-  <h3>Location: <%= @doctor.city %></h3>
-  <h3>Experience: <%= @doctor.experience %> years</h3>
-  <ul>
-    <% @doctor.languages.each do |language| %>
-      <li> <%= language.name %></li>
-    <% end %>
-  </ul>
+<div class="dr-container">
+  <!--card 1 - doctor's picture and description-->
+  <div class="picture-card">
+    <div class="dr-img">
+      <%# <% if @doctor.user.photo.attached? %>
+        <%# <%= cl_image_tag @doctor.user.photo.key %>
+      <%# <% else %>
+        <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*">
+      <%# <% end %>
+    </div>
+      <div class="picture-card-text">
+        <h1 class="zain-bold blue"><%= @doctor.full_name %></h1>
+        <h1>Specialization: <%= @doctor.specialization %></h1>
+        <h3>Location: <%= @doctor.city %></h3>
+        <h3>Experience: <%= @doctor.experience %> years</h3>
+      </div>
+  </div>
+  <!--card 2 - doctor services and availability card-->
+  <div class="doctor-service-card">
+    <div class="service">
+      <h1 class="zain-bold">SERVICES</h1>
+        <ul>
+          <% @description_list.each do |phrase| %>
+            <li><%= phrase %></li>
+          <% end %>
+        </ul>
+    </div>
+    <div class="availability">
+      <h1 class="zain-bold">AVAILABILITY</h1>
+      <div class="schedule">
+        <ul><% @availability_list.each do |availability| %>
+            <li><%= availability %></li>
+            <% end %>
+        </ul>
+      </div>
+      <p><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%></p>
+    </div>
+    <div class="price">
+      <h2 class="zain-light blue">Price per hour </h2><br><%= @doctor.price_per_hour %> €/h
+    </div>
+  </div>
+  <!--card 3 - languages card-->
+  <div class="languages-card">
+    <h3 class="zain-bold blue">Languages</h3>
+    <div class="languages">
+      <%@doctor.languages.each do |language| %>
+        <div class="#language"><%= language.name %></div>
+      <% end %>
+    </div>
+  </div>
+  <!--card 4- education card-->
+  <div class="education-card">
+    <h3 class="zain-bold blue">Education</h3>
+    <div class="text">
+      <%=@doctor.education%>
+    </div>
+  </div>
+
+</div>
+
+<div class="text-center mt-3">
+  <%= link_to 'Back to Doctors', doctors_path, class: 'btn btn-primary' %>
 </div>

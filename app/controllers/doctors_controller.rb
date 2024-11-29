@@ -15,9 +15,7 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find_by(id: params[:id])
-    if @doctor.nil?
-      redirect_to doctors_path, alert: "Doctor not found."
-    end
+    redirect_to doctors_path, alert: "Doctor not found." if @doctor.nil?
     @description_list = @doctor.description.split(/(?<=\.)|\n/).map(&:strip).reject(&:empty?)
     @availability_list = @doctor.formatted_availability
   end
@@ -36,9 +34,7 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     @doctor.user = current_user
-    if current_user.photo.attached?
-      @doctor.photo.attach(current_user.photo.blob)
-    end
+    @doctor.photo.attach(current_user.photo.blob) if current_user.photo.attached?
 
     if @doctor.save
       redirect_to @doctor, notice: "Doctor was successfully created."
@@ -50,6 +46,10 @@ class DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:first_name, :last_name, :experience, :specialization, :city, :description, :education, :availability, :price_per_hour, :photo, :languages_ids => [])
+    params.require(:doctor).permit(
+      :first_name, :last_name, :experience, :specialization, :city,
+      :description, :education, :availability, :price_per_hour, :photo,
+      :languages_ids => []
+    )
   end
 end

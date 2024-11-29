@@ -34,7 +34,7 @@ Doctor.create!(
   description: "I graduated from John Hopkins University in 2008 and made my residency at John Hopking Medicine.
   Shortly thereafter I moved to Lübeck in Schleswig Holstein. Now I have worked at Le Krankenwagon for 12 years.",
   education: "MD In Cardiology from John Hopkins University",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00",
   price_per_hour: 70,
   user_id: user1.id
   )
@@ -57,7 +57,7 @@ Doctor.create!(
   the Instituto Argentino de Diagnostico y Tratamiento. Shortly thereafter I moved to Berlin and recertified as a
   neurologist at Charite Universitätsmedizin Berlin. Now I have worked at Le Krankenwagon Berlin for 7 years.",
   education: "MD in cardiology from the Instituto Argentino de Diagnostico y Tratamiento",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00",
   price_per_hour: 90,
   user_id: user2.id
   )
@@ -81,7 +81,7 @@ Doctor.create!(
   paediatrician at Charite Universitätsmedizin Berlin. Now I live in Hannover. I now have worked at Le Krankenwagon
   Hanover for 7 years.",
   education: "MD in pediatry from the Universidad Autónoma de Madrid",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 75,
   user_id: user3.id
   )
@@ -105,7 +105,7 @@ Doctor.create!(
   clinical psychology at Charite Universitätsmedizin Berlin. I now have worked at Le Krankenwagon Berlin, BE for 7
   years.",
   education: "MD in clinical psychology from Fortis Flt Lt Rajan Dhall Hospital",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 10:00-14:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 10:00-14:00 ",
   price_per_hour: 77,
   user_id: user4.id
   )
@@ -128,10 +128,12 @@ Doctor.create!(
   Cabridge Universoty hospital. Later I moved to Hannover, NI. I now have worked at Le Krankenwagon
   Hanover for 8 years.",
   education: "MD in gastroentorology from University of Cambridge",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 60,
   user_id: user5.id
-  )
+)
+# file = URI.parse("https://res.cloudinary.com/dcdn0sx7c/image/upload/v1732697657/Jos%C3%A9_Copeti_qnyizg.jpg").open
+# user2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 
 user6 = User.create!(
   first_name: "Alexander",
@@ -151,7 +153,7 @@ Doctor.create!(
   Yale New Haven Hospital and recertified as a podiatrist at Charite Universitätsmedizin Berlin. Later I moved to Lübeck,SH.
   I now have worked at Le Krankenwagon Lübeck for 6 years.",
   education: "MD in gastroentorology from Yale University",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 75,
   user_id: user6.id
   )
@@ -174,7 +176,7 @@ Doctor.create!(
   The Royal London Hospital. Later I moved to Düsseldorf,NRW. I now have worked at Le Krankenwagon
   Düsseldorf for 6 years.",
   education: "MD in Otolaryngology from St George's University of London",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 75,
   user_id: user7.id
   )
@@ -197,7 +199,7 @@ Doctor.create!(
   GMS Hospital. I then recertified as a Dermatologist at Charite Universitätsmedizin Berlin Later I moved to Düsseldorf,
   NRW. I now have worked at Le Krankenwagon Düsseldorf for 10 years.",
   education: "MD in Dermatology from First Moscow State Medical University",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 80,
   user_id: user8.id
   )
@@ -214,13 +216,13 @@ Doctor.create!(
   first_name: user9.first_name,
   last_name: user9.last_name,
   experience: 10,
-  specialization: "Medicine",
+  specialization: "General Medicine",
   city: "Frankfurt",
   description: "I graduated from Universidade Federal do Rio de Janeiro in 2013 and made my residency at
   Hospital São Lucas Copacabana. Then I recertified as a docotr in Family Medicine at Charite Universitätsmedizin Berlin
   . After that I moved to Frankfurt, NRW. I now have worked at Le Krankenwagon Frankfurt for 10 years.",
   education: "MD in Family Medicine from Universidade Federal do Rio de Janeiro",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 60,
   user_id: user9.id
   )
@@ -243,10 +245,9 @@ Doctor.create!(
   Cabridge Universoty hospital. After that I moved to Frankfurt, NRW. I now have worked at Le Krankenwagon Frankfurt for
    17 years.",
   education: "MD in Family Practice Sports Medicine from Universidade Federal do Rio de Janeiro",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 80,
   user_id: user10.id
-
   )
 
 user11 = User.create!(
@@ -261,20 +262,19 @@ Doctor.create!(
   first_name: user11.first_name,
   last_name: user11.last_name,
   experience: 12,
-  specialization: "cardiología",
+  specialization: "Cardiology",
   city: "Oxford, OX",
   description: "I graduated from the Oxford University in Oxford in 2012 and made my residency at
   Royal London Hospital. Later I moved to Hannover, NI and recertified as a
   paediatrician at Charite Universitätsmedizin Berlin. Now I live in Hannover. I now have worked at Le Krankenwagon
   Hanover for 7 years.",
   education: "MD in cardiology surgery from the University of London",
-  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 hs",
+  availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 75,
   user_id: user11.id
   )
 
 puts "Seeds from LeWagon created!"
-
 
 
 puts "seeding languages"

@@ -2,7 +2,23 @@ source "https://rubygems.org"
 
 ruby "3.3.5"
 
+
 gem 'faker'
+
+# Gemfile
+gem "solid_queue"
+
+# Gemfile
+gem "pry"
+
+# Gemfile
+gem "solid_cable"
+
+#  Openai gem installation
+gem "ruby-openai"
+
+#  Neighbor gem installation
+gem 'neighbor'
 
 #  Devise gem installation
 gem "devise"

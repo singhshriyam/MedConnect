@@ -27,7 +27,7 @@ class ChatbotJob < ApplicationJob
   def questions_formatted_for_openai
     questions = @question.user.questions
     results = []
-    results << { role: "system", content: "You are an assistant for an e-commerce website." }
+    results << { role: "system", content: "You are an assistant for a doctor's online consultation website." }
     questions.each do |question|
       results << { role: "user", content: question.user_question }
       results << { role: "assistant", content: question.ai_answer || "" }

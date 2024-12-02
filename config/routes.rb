@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
 
   resources :appointments, only: [:index, :show]
+  resources :questions, only: [:index, :create]
 end

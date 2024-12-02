@@ -348,7 +348,7 @@ puts "seeding doctors"
     city: downtown.sample,
     description: Faker::Lorem.sentence(word_count: 20),
     education: Faker::University.name,
-    availability: Faker::Boolean.boolean,
+    availability: "M 10:00-17:00 / T 9:00-16:00 / W 9:00-16:00 / R 9:00-16:00 / F 10:00-14:00",
     user_id: user.id,
     price_per_hour: Faker::Number.decimal(l_digits: 2, r_digits: 2)
   )

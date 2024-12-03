@@ -18,7 +18,7 @@ class AppointmentsController < ApplicationController
     @appointment.doctor = @doctor
 
     if @appointment.save
-      redirect_to doctor_path(@doctor), notice: 'Appointment created successfully!'
+      redirect_to @doctor, notice: 'Appointment created successfully!'
     else
       render :new
     end

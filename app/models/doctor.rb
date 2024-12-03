@@ -5,6 +5,10 @@ class Doctor < ApplicationRecord
   has_many :language_abilities, dependent: :destroy
   has_many :languages, through: :language_abilities
   # has_many :users, through: :appointments
+
+  has_neighbors :embedding
+  # after_create :set_embedding
+  
   validates :first_name, :last_name, :city, :description, presence: true
 
   def full_name
@@ -31,5 +35,21 @@ class Doctor < ApplicationRecord
       # Final phrase format
       "#{full_day}:     #{times}"
     end
+  end
+  
+  private
+
+  def set_embedding
+    # binding.pry
+    client = OpenAI::Client.new
+    response = client.embeddings(
+      parameters: {
+        model: 'text-embedding-3-small',
+        # input: "Doctor: #{full_name}. Description: #{description}"
+        input: "Hellow!"
+      }
+    )
+    embedding = response['data'][0]['embedding']
+    update(embedding: embedding)
   end
 end

@@ -5,10 +5,9 @@ class Doctor < ApplicationRecord
   has_many :language_abilities, dependent: :destroy
   has_many :languages, through: :language_abilities
   # has_many :users, through: :appointments
-
   has_neighbors :embedding
-  # after_create :set_embedding
-  
+  after_create :set_embedding
+
   validates :first_name, :last_name, :city, :description, presence: true
 
   def full_name

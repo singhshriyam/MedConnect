@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :messages
   has_one :doctor, dependent: :destroy
   has_many :appointments, dependent: :destroy
-  has_many :questions
+  has_many :questions, dependent: :destroy
   # has_many :doctors, through: :appointments
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

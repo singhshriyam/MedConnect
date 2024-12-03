@@ -10,6 +10,7 @@ require 'faker'
 #   end
 puts "Deleting the database"
 
+Question.delete_all
 Message.delete_all
 Appointment.delete_all
 LanguageAbility.delete_all

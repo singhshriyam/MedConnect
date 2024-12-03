@@ -35,17 +35,15 @@ class Doctor < ApplicationRecord
       "#{full_day}:     #{times}"
     end
   end
-  
+
   private
 
   def set_embedding
-    # binding.pry
     client = OpenAI::Client.new
     response = client.embeddings(
       parameters: {
         model: 'text-embedding-3-small',
-        # input: "Doctor: #{full_name}. Description: #{description}"
-        input: "Hellow!"
+        input: "Doctor: #{full_name}. Description: #{description}"
       }
     )
     embedding = response['data'][0]['embedding']

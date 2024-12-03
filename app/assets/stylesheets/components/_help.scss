@@ -1,0 +1,24 @@
+#help-icon {
+  position: fixed;
+  bottom: 75px;
+  right: 75px;
+  z-index: 1000;
+  background-color: #008C99;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#help-icon .help-link {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#help-icon .help-link:hover {
+  transform: scale(1.5);
+  transition: transform 0.8s ease, color 0.8s ease;
+}

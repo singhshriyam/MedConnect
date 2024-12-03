@@ -1,5 +1,5 @@
 <div class="container my-4">
-  <h1 class="text-center mb-3">Appointments</h1>
+  <h1 class="text-center mb-3">Appointments of <%=current_user.first_name.capitalize %></h1>
 
   <div class="row" data-controller="appointments-toggle">
 
@@ -10,9 +10,9 @@
       </button>
     </div>
 
-    <%# Appointments as a user section %>
+    <%# Appointments as a user/patient section %>
     <div class="col-md-12" data-appointments-toggle-target="userAppointments">
-      <h2 class="mt-4">Appointments as a User:</h2>
+      <h2 class="mt-4">Appointments as a Patient:</h2>
       <% if @appointments_as_user.any? %>
         <% @appointments_as_user.each do |appointment| %>
           <div class="card shadow-sm my-3">
@@ -40,7 +40,7 @@
         <% @appointments_as_doctor.each do |appointment| %>
           <div class="card shadow-sm my-3">
             <div class="card-header text-white bg-primary">
-              Appointment with <%= appointment.user.email %>
+              Appointment with <%= appointment.user.first_name.capitalize %><%= appointment.user.last_name.capitalize %>
             </div>
             <div class="card-body">
               <p><strong>Message:</strong> <%= appointment.message %></p>

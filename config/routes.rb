@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :messages, only: %i[create index]
   end
 
-  resources :appointments, only: [:index, :show]
-  resources :questions, only: [:index, :create]
+  resources :appointments, only: %i[index show]
+  resources :questions, only: %i[index create]
 
 end

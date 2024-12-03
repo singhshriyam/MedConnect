@@ -71,7 +71,7 @@ doctor2 = Doctor.create!(
 
 user3 = User.create!(
   first_name: "judit",
-  last_name: " borrás Puig",
+  last_name: "borrás",
   email: "judit@gmail.com",
   password: "judit123",
   year_of_birth: 1989
@@ -339,7 +339,7 @@ hospital_positions = ["oncology", "gastroentorology", "psychiatry", "family", "o
 downtown = ["berlin", "lübeck", "frankfurt", "hannover", "düsseldorf", "essen", "dortmund", "leipzig", "stuutgard", "hamburg", "cologne", "nuremburg"]
 
 puts "seeding doctors"
-50.times do
+20.times do
   user = users.sample
   doctor = Doctor.create!(
     first_name: user.first_name,

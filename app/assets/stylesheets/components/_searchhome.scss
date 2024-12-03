@@ -36,7 +36,7 @@
   flex: 1;
   padding: 5px;
   font-size: 14px;
-  width: 500px;
+  width: 200px;
 }
 
 .search-btn {
@@ -44,4 +44,44 @@
   font-size: 14px;
   white-space: nowrap;
   margin-right: 50px;
+}
+
+//From here down it is for the other type of search box in the doctor's index view.(Some classes from the original search box are being borrowed in this new search box)//
+
+.stacked-search-big{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  background-color: $blue;
+  width: 220px;
+  position: sticky;
+  top: 100px;
+  right: 20px;
+  margin-left: 20px;
+  height: 250px;
+}
+
+.stacked-search{
+  margin-bottom: 20px;
+}
+
+.submitt{
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 5px grey;
+  width: 100px;
+}
+
+.submit:hover{
+  color: black;
+  font-weight: bold ;
+  transition: 0.5s ease-in-out;
+}
+
+.card-search-big{
+  display: flex;
 }

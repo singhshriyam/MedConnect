@@ -11,11 +11,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :doctors, only: [:index, :show, :update, :new, :create]
+  resources :doctors, only: %i[index show update new create]
   resources :doctors do
-    resources :appointments, only: [:new, :create]
+    resources :appointments, only: %i[new create]
+  end
+
+
+  resources :appointments, only: %i[index show] do
+    resources :messages, only: %i[create index]
   end
 
   resources :appointments, only: [:index, :show]
   resources :questions, only: [:index, :create]
+
 end

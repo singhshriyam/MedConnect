@@ -1,73 +1,75 @@
-<div class="super-big">
-  <h1 class="doctor-index-aich1">Doctors</h1>
-  <% if params[:city].present? && params[:languages] == "" && params[:specialization] == "" %>
-    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:city].capitalize %></h2>
-  <% elsif params[:specialization].present? && params[:city] == "" && params[:languages] == "" %>
-    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:specialization].capitalize %></h2>
-  <% elsif params[:languages].present? && params[:specialization] == "" && params[:city] == "" %>
-    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:languages].capitalize %></h2>
-  <% elsif params[:languages].present? && params[:specialization].present? && params[:city] == "" %>
-    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:languages].capitalize %> and <%= params[:specialization].capitalize %></h2>
-  <% elsif params[:languages].present? && params[:specialization] == "" && params[:city].present? %>
-    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:languages].capitalize %> and <%= params[:city].capitalize %></h2>
-  <% elsif params[:languages] == "" && params[:specialization].present? && params[:city].present? %>
-    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:specialization].capitalize %> and <%= params[:city].capitalize %></h2>
-  <% elsif params[:languages].present? && params[:specialization].present? && params[:city].present? %>
-    <h2 class="doctor-index-aich2">Here are the results for: <%= params[:specialization].capitalize %>, <%= params[:city].capitalize %>, and <%= params[:languages].capitalize %></h2>
-  <% else %>
-    <h2 class="doctor-index-aich2">Please choose a doctor.</h2>
-  <% end %>
-  <div class="card-search-big">
-    <div class="doc-index-big-div">
-      <% @doctors.uniq { |doctor| "#{doctor.first_name} #{doctor.last_name}" }.each do |doctor| %>
-        <div class="doctor-card-frame">
-          <h3 class="doctor-last_name"><%= "Dr. #{doctor.last_name.capitalize}" %></h3>
-          <div class="doctor-image-information-button">
-            <% if doctor.photo.attached? %>
-              <%= cl_image_tag doctor.photo.key, class: "doctor-image" %>
-            <% else %>
-              <img class="doctor-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="local_img" >
-            <% end %>
-            <div class="information-button">
-              <div class="pees">
-                <div class="specialization-div">
-                  <p class="sec-headings-p">Specialization:</p>
-                  <p class="sec-values-p"><%= doctor.specialization.capitalize %></p>
+<div class="super-duper-big">
+  <div class="super-big">
+    <h1 class="doctor-index-aich1">Doctors</h1>
+    <% if params[:city].present? && params[:languages] == "" && params[:specialization] == "" %>
+      <h2 class="doctor-index-aich2">Here are the results for: <%= params[:city].capitalize %></h2>
+    <% elsif params[:specialization].present? && params[:city] == "" && params[:languages] == "" %>
+      <h2 class="doctor-index-aich2">Here are the results for: <%= params[:specialization].capitalize %></h2>
+    <% elsif params[:languages].present? && params[:specialization] == "" && params[:city] == "" %>
+      <h2 class="doctor-index-aich2">Here are the results for: <%= params[:languages].capitalize %></h2>
+    <% elsif params[:languages].present? && params[:specialization].present? && params[:city] == "" %>
+      <h2 class="doctor-index-aich2">Here are the results for: <%= params[:languages].capitalize %> and <%= params[:specialization].capitalize %></h2>
+    <% elsif params[:languages].present? && params[:specialization] == "" && params[:city].present? %>
+      <h2 class="doctor-index-aich2">Here are the results for: <%= params[:languages].capitalize %> and <%= params[:city].capitalize %></h2>
+    <% elsif params[:languages] == "" && params[:specialization].present? && params[:city].present? %>
+      <h2 class="doctor-index-aich2">Here are the results for: <%= params[:specialization].capitalize %> and <%= params[:city].capitalize %></h2>
+    <% elsif params[:languages].present? && params[:specialization].present? && params[:city].present? %>
+      <h2 class="doctor-index-aich2">Here are the results for: <%= params[:specialization].capitalize %>, <%= params[:city].capitalize %>, and <%= params[:languages].capitalize %></h2>
+    <% else %>
+      <h2 class="doctor-index-aich2">Please choose a doctor.</h2>
+    <% end %>
+    <div class="card-search-big">
+      <div class="doc-index-big-div">
+        <% @doctors.uniq { |doctor| "#{doctor.first_name} #{doctor.last_name}" }.each do |doctor| %>
+          <div class="doctor-card-frame">
+            <h3 class="doctor-last_name"><%= "Dr. #{doctor.last_name.capitalize}" %></h3>
+            <div class="doctor-image-information-button">
+              <% if doctor.photo.attached? %>
+                <%= cl_image_tag doctor.photo.key, class: "doctor-image" %>
+              <% else %>
+                <img class="doctor-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="local_img" >
+              <% end %>
+              <div class="information-button">
+                <div class="pees">
+                  <div class="specialization-div">
+                    <p class="sec-headings-p">Specialization:</p>
+                    <p class="sec-values-p"><%= doctor.specialization.capitalize %></p>
+                  </div>
+                  <div class="specialization-div">
+                    <p class="sec-headings-p">Experience:</p>
+                    <p class="sec-values-p"><%= doctor.experience %> Years</p>
+                  </div>
+                  <div class="specialization-div">
+                    <p class="sec-headings-p">City:</p>
+                    <p class="sec-values-p"><%= doctor.city.capitalize %></p>
+                  </div>
                 </div>
-                <div class="specialization-div">
-                  <p class="sec-headings-p">Experience:</p>
-                  <p class="sec-values-p"><%= doctor.experience %> Years</p>
-                </div>
-                <div class="specialization-div">
-                  <p class="sec-headings-p">City:</p>
-                  <p class="sec-values-p"><%= doctor.city.capitalize %></p>
-                </div>
+                <%= link_to doctor_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
               </div>
-              <%= link_to doctor_path(doctor) do %><p class="link-knopf">More Info</p><% end %>
             </div>
           </div>
-        </div>
-      <% end  %>
-    </div>
-    <div class="stacked-search-big">
-      <h3>Search Filter</h3>
-      <%= form_with url: doctors_path, method: :get do %>
-        <div class="stacked-search">
-          <%= text_field_tag :city,
-              params[:city], placeholder: "Enter your city", class: "form-control location-input" %>
-        </div>
-        <div class="stacked-search">
-          <%= text_field_tag :specialization,
-            params[:specialization], placeholder: "Enter the specialization", class: "form-control location-input" %>
-        </div>
-        <div class="stacked-search">
-          <%= text_field_tag :languages,
-          params[:languages], placeholder: "Enter your language", class: "form-control location-input" %>
-        </div>
-        <div class="stacked-sub">
-          <%= submit_tag "Search", class: "submitt" %>
-        </div>
-      <% end %>
+        <% end  %>
+      </div>
+      <div class="stacked-search-big">
+        <h3>Search Filter</h3>
+        <%= form_with url: doctors_path, method: :get do %>
+          <div class="stacked-search">
+            <%= text_field_tag :city,
+                params[:city], placeholder: "Enter your city", class: "form-control location-input" %>
+          </div>
+          <div class="stacked-search">
+            <%= text_field_tag :specialization,
+              params[:specialization], placeholder: "Enter the specialization", class: "form-control location-input" %>
+          </div>
+          <div class="stacked-search">
+            <%= text_field_tag :languages,
+            params[:languages], placeholder: "Enter your language", class: "form-control location-input" %>
+          </div>
+          <div class="stacked-sub">
+            <%= submit_tag "Search", class: "submitt" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

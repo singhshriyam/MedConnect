@@ -9,16 +9,16 @@
       <% end %>
     </div>
       <div class="picture-card-text">
-        <h1 class="zain-bold blue"><%= @doctor.full_name %></h1>
-        <h1>Specialization: <%= @doctor.specialization.capitalize %></h1>
-        <h3>Location: <%= @doctor.city.capitalize %></h3>
-        <h3>Experience: <%= @doctor.experience %> years</h3>
+        <h1 class="zain-bold blue">Dr. <%= @doctor.last_name.capitalize %></h1>
+        <div class="card-info-aichtwo"><h3>Specialization:</h3><h3><%= @doctor.specialization.capitalize %></h3></div>
+        <div class="card-info-aichtwo"><h3>Location:</h3><h3><%= @doctor.city.capitalize %></h3></div>
+        <div class="card-info-aichtwo"><h3>Experience:</h3><h3><%= @doctor.experience %> Years</h3></div>
       </div>
   </div>
   <!--card 2 - doctor services and availability card-->
   <div class="doctor-service-card">
     <div class="service">
-      <h1 class="zain-bold">SERVICES</h1>
+      <h2 class="zain-bold">Services</h2>
         <ul>
           <% @description_list.each do |phrase| %>
             <li><%= phrase %></li>
@@ -26,17 +26,16 @@
         </ul>
     </div>
     <div class="availability">
-      <h1 class="zain-bold">AVAILABILITY</h1>
+      <h2 class="zain-bold">availability</h2>
       <div class="schedule">
         <ul><% @availability_list.each do |availability| %>
             <li><%= availability %></li>
             <% end %>
         </ul>
       </div>
-      <p><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%></p>
     </div>
     <div class="price">
-      <h2 class="zain-light blue">Price per hour </h2><br><p><%= @doctor.price_per_hour %> €/h </p>
+      <h2 class="zain-bold colors">Price per hour </h2><br><p><%= @doctor.price_per_hour %> €/h </p>
     </div>
   </div>
   <!--card 3 - languages card-->
@@ -44,7 +43,7 @@
     <h3 class="zain-bold blue">Languages</h3>
     <div class="dr-languages zain-bold">
       <%@doctor.languages.each do |language| %>
-        <div class="language-rounded"> <%= language.name %>  </div>
+        <div class="language-rounded"> <%= language.name %> </div>
       <% end %>
     </div>
   </div>
@@ -54,6 +53,7 @@
     <div class="education-text zain-regular">
       <%=@doctor.education%>
     </div>
+    <p><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%></p>
   </div>
 </div>
   <div class="text-center mt-3 mb-3" id="back-doctors" >

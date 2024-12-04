@@ -57,12 +57,10 @@
   padding: 10px;
   color: white;
   background-color: $blue;
-  width: 220px;
+  width: 270px;
   position: sticky;
   top: 100px;
-  right: 20px;
-  margin-left: 20px;
-  height: 250px;
+  height: 258px;
 }
 
 .stacked-search{
@@ -73,13 +71,19 @@
   border-radius: 5px;
   border: none;
   box-shadow: 2px 2px 5px grey;
-  width: 100px;
+  width: 150px;
+  transition: all 0.3s ease-in-out;
 }
 
-.submit:hover{
-  color: black;
-  font-weight: bold ;
-  transition: 0.5s ease-in-out;
+.submitt:hover{
+  color: white;
+  background-color: $blue;
+  border: 1px solid white;
+}
+
+.stacked-search > input{
+  width: 250px;
+  font-size: 16px;
 }
 
 .card-search-big{

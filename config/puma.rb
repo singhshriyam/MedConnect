@@ -46,3 +46,9 @@ plugin :tmp_restart
 if Rails.env.development?
   plugin :solid_queue
 end
+
+if rails_env == "development"
+  plugin :solid_queue
+end
+
+# NOT if Rails.env.development?

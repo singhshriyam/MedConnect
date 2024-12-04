@@ -23,7 +23,7 @@
 
   <body>
 
-    <div class="pages-container">
+    <div class="pages-container d-flex flex-column min-vh-100">
       <div class="navbar-container"><%= render "shared/navbar" %></div>
       <div class="container"><%= yield %></div>
       <% if flash[:notice] %>

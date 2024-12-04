@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'consultations/index'
+  get 'consultations/show'
+  get 'consultations/new'
+  get 'consultations/create'
   devise_for :users
   root to: "pages#home"
 
@@ -20,8 +24,7 @@ Rails.application.routes.draw do
   resources :appointments, only: %i[index show] do
     resources :messages, only: %i[create index]
   end
-
   resources :appointments, only: [:index, :show]
+  resources :consultations, only: [:index, :show, :new, :create]
   resources :questions, only: [:index, :create]
-
 end

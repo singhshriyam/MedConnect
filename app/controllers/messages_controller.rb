@@ -1,10 +1,13 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @appointments_as_doctor = Appointment.where(doctor: current_user)
     @appointments_as_patient = Appointment.where(user: current_user)
     @appointment = Appointment.find(params[:appointment_id])
+
+    @room_link = @appointment.room_link
+
     @message = Message.new
     @messages = @appointment.messages.order(created_at: :asc)
   end

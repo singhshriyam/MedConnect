@@ -1,69 +1,75 @@
+.super-duper-big{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
 .super-big{
-  margin-left: 77px;
-  margin-right: 298px;
+  padding-top: 50px;
 }
 
 .doctor-index-aich1{
-  margin: 26px;
-  font-size: 64px;
+  margin-bottom: 26px;
+  font-size: 72px;
   margin-left: 0;
   margin-right: 0;
   color: $blue;
 }
 
 .doctor-index-aich2{
-  margin: 26px;
+  margin-top: 26px;
+  margin-bottom: 50px;
   font-size: 48px;
   margin-left: 0;
   margin-right: 0;
   color: $blue;
-
 }
 
 .doc-index-big-div{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 20px;
-  column-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 60px;
+  column-gap: 60px;
   width: 1525px;
 }
 
 .doctor-card-frame{
-  width: 495px;
-  height: 250px;
+  width: 700px;
+  height: 380px;
   border-radius: 5px;
-  border: solid 2px $blue;
+  border: 2px solid $blue;
 }
 
 .doctor-last_name{
   text-align: center;
-  font-size: 48px;
+  font-size: 60px;
   color: $blue;
-  height: 40px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .doctor-image-information-button{
   display: flex;
   justify-content: center;
   align-items: start;
-
+  margin-bottom: 15px;
 }
 
 .doctor-image{
-  width: 184px;
-  height: 172px;
+  width: 256px;
+  height: 256px;
   border-radius: 5px;
-  margin-right: 13px;
-  height: 187px;
+  margin-right: 60px;
   object-fit: cover;
 }
 
 .information-button{
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-height: 187px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 256px;
 }
 
 .pees{
@@ -77,14 +83,14 @@ height: 187px;
   display: flex;
   justify-content: space-between;
   align-items: start;
-  width: 250px;
-  margin-bottom: 15px;
+  width: 350px;
+  margin-bottom: 30px;
 }
 
 .sec-headings-p, .sec-values-p{
   margin-bottom: 0px;
-  font-size: 22px;
-  margin-top: -7px;
+  font-size: 30px;
+  margin-top: -12px;
   color: $blue;
 }
 
@@ -107,4 +113,9 @@ height: 187px;
   color: white;
   text-align: center;
   margin-bottom: 0px;
+  transition: all 0.3s;
+}
+
+.link-knopf:hover{
+transform: scale(1.1);
 }

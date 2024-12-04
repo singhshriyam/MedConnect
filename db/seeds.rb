@@ -269,7 +269,7 @@ doctor10 = Doctor.create!(
   last_name: user10.last_name,
   experience: 17,
   specialization: "sports",
-  city: "erankfurt",
+  city: "frankfurt",
   description: "I graduated from Cambridge University in 2016 and made my residency at
   Cabridge Universoty hospital. After that I moved to Frankfurt, NRW. I now have worked at Le Krankenwagon Frankfurt for
    17 years.",

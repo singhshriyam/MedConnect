@@ -51,4 +51,3 @@ if rails_env == "development"
   plugin :solid_queue
 end
 
-# NOT if Rails.env.development?

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'consultations/index'
+  get 'consultations/show'
+  get 'consultations/new'
+  get 'consultations/create'
   devise_for :users
   root to: "pages#home"
 

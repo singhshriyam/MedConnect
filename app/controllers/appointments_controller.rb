@@ -3,7 +3,8 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments_as_user = current_user.appointments
-    @appointments_as_doctor = Appointment.where(doctor: current_user)
+    # @appointments_as_doctor = Appointment.where(doctor: current_user)
+    @appointments_as_doctor = current_user.doctor.appointments
   end
 
   def new
@@ -18,7 +19,7 @@ class AppointmentsController < ApplicationController
     @appointment.doctor = @doctor
 
     if @appointment.save
-      redirect_to @doctor, notice: 'Appointment created successfully!'
+      redirect_to appointments_path, notice: 'Appointment created successfully!'
     else
       render :new
     end

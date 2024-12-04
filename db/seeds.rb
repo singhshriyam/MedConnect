@@ -10,6 +10,7 @@ require 'faker'
 #   end
 puts "Deleting the database"
 
+Question.delete_all
 Message.delete_all
 Appointment.delete_all
 LanguageAbility.delete_all
@@ -70,7 +71,7 @@ doctor2 = Doctor.create!(
 
 user3 = User.create!(
   first_name: "judit",
-  last_name: " borrás Puig",
+  last_name: "borrás",
   email: "judit@gmail.com",
   password: "judit123",
   year_of_birth: 1989
@@ -268,7 +269,7 @@ doctor10 = Doctor.create!(
   last_name: user10.last_name,
   experience: 17,
   specialization: "sports",
-  city: "erankfurt",
+  city: "frankfurt",
   description: "I graduated from Cambridge University in 2016 and made my residency at
   Cabridge Universoty hospital. After that I moved to Frankfurt, NRW. I now have worked at Le Krankenwagon Frankfurt for
    17 years.",
@@ -338,7 +339,7 @@ hospital_positions = ["oncology", "gastroentorology", "psychiatry", "family", "o
 downtown = ["berlin", "lübeck", "frankfurt", "hannover", "düsseldorf", "essen", "dortmund", "leipzig", "stuutgard", "hamburg", "cologne", "nuremburg"]
 
 puts "seeding doctors"
-50.times do
+20.times do
   user = users.sample
   doctor = Doctor.create!(
     first_name: user.first_name,

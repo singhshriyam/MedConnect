@@ -10,6 +10,7 @@ require 'faker'
 #   end
 puts "Deleting the database"
 
+Question.delete_all
 Message.delete_all
 Appointment.delete_all
 LanguageAbility.delete_all
@@ -202,14 +203,14 @@ doctor7 = Doctor.create!(
   doctor7.photo.attach(user7.photo.blob)
 
 user8 = User.create!(
-  first_name: "soňa",
-  last_name: "chaboud",
-  email: "sona@gmail.com",
-  password: "sona123",
+  first_name: "olivier",
+  last_name: "girardot",
+  email: "oli@gmail.com",
+  password: "oli123",
   year_of_birth: 1996
 )
-file = URI.open("https://res.cloudinary.com/dcdn0sx7c/image/upload/v1732697688/So%C5%88a_Chaboud_bldu9f.jpg")
-user8.photo.attach(io: file, filename: "sona.png", content_type: "image/png")
+file = URI.open("https://ca.slack-edge.com/T02NE0241-USL1K1LKA-94322c3f7d7c-512")
+user8.photo.attach(io: file, filename: "oli.png", content_type: "image/png")
 
 doctor8 = Doctor.create!(
   first_name: user8.first_name,
@@ -348,7 +349,7 @@ puts "seeding doctors"
     city: downtown.sample,
     description: Faker::Lorem.sentence(word_count: 20),
     education: Faker::University.name,
-    availability: Faker::Boolean.boolean,
+    availability: "M 10:00-17:00 / T 9:00-16:00 / W 9:00-16:00 / R 9:00-16:00 / F 10:00-14:00",
     user_id: user.id,
     price_per_hour: Faker::Number.decimal(l_digits: 2, r_digits: 2)
   )

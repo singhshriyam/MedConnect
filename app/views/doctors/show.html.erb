@@ -42,8 +42,8 @@
   <div class="dr-languages-card">
     <h3 class="zain-bold blue">Languages</h3>
     <div class="dr-languages zain-bold">
-      <%@doctor.languages.each do |language| %>
-        <div class="language-rounded"> <%= language.name %> </div>
+      <%@doctor.languages.uniq { |language| "#{language.name}" }.each do |language| %>
+        <div class="language-rounded"> <%= language.name %>  </div>
       <% end %>
     </div>
   </div>

@@ -35,11 +35,17 @@
     </div>
   </div>
 
+  <div id="help-icon">
+    <%= link_to questions_path, class: "help-link", aria: { label: "How may I help you?" } do %>
+      <i class="fa-regular fa-comments"></i>
+    <% end %>
+  </div>
+
   <!--Here goes the categories-->
   <div class="categories">
 
     <div class="categories-text">
-      <h1>Choose your category</h1>
+      <h1>Frequently searched categories</h1>
     </div>
     <div class="categories-icons">
       <!--Here goes icon1-->
@@ -102,7 +108,7 @@
         <div>
           <%= image_tag "findoctors.png"%>
           <div class="card-findoctors-text">
-            Find doctors <br> near you
+            Doctors near you
           </div>
         </div>
       <%end%>

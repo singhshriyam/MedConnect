@@ -13,7 +13,6 @@
 ActiveRecord::Schema[7.1].define(version: 2024_12_03_140221) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "vector"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,14 +58,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_140221) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
-  create_table "calls", force: :cascade do |t|
-    t.string "session_id"
-    t.bigint "appointment_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["appointment_id"], name: "index_calls_on_appointment_id"
-  end
-
   create_table "consultations", force: :cascade do |t|
     t.string "room_link"
     t.datetime "created_at", null: false
@@ -86,7 +77,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_140221) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.vector "embedding", limit: 1536
     t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 
@@ -273,7 +263,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_140221) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "doctors"
   add_foreign_key "appointments", "users"
-  add_foreign_key "calls", "appointments"
   add_foreign_key "doctors", "users"
   add_foreign_key "language_abilities", "doctors"
   add_foreign_key "language_abilities", "languages"

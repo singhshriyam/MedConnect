@@ -7,6 +7,25 @@ gem 'pry-byebug'
 # Faraday gem installation
 gem 'faraday'
 
+gem 'faker'
+
+gem 'font-awesome-rails'
+
+# Gemfile
+gem "solid_queue"
+
+# Gemfile
+gem "pry"
+
+# Gemfile
+gem "solid_cable"
+
+#  Openai gem installation
+gem "ruby-openai"
+
+#  Neighbor gem installation
+gem 'neighbor'
+
 #  Devise gem installation
 gem "devise"
 
@@ -32,7 +51,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+# gem "jbuilder"
 
 gem 'ostruct'
 # Use Redis adapter to run Action Cable in production

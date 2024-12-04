@@ -26,5 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :consultations, only: [:index, :show, :new, :create]
-  resources :questions, only: [:index, :create]
+  resources :questions, only: [:index, :create] do
+    delete "delete_all", on: :collection
+  end
 end

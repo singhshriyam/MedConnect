@@ -1,14 +1,3 @@
-.super-duper-big{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-}
-
-.super-big{
-  padding-top: 50px;
-}
-
 .doctor-index-aich1{
   margin-bottom: 26px;
   font-size: 72px;
@@ -29,38 +18,35 @@
 .doc-index-big-div{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 60px;
-  column-gap: 60px;
-  width: 1525px;
+  grid-gap: 20px;
 }
 
 .doctor-card-frame{
-  width: 700px;
-  height: 380px;
+  // width: 700px;
+  // height: 380px;
   border-radius: 5px;
   border: 2px solid $blue;
 }
 
 .doctor-last_name{
-  text-align: center;
-  font-size: 60px;
+  // text-align: center;
+  font-size: 4rem;
   color: $blue;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  // margin-bottom: 15px;
+  // margin-top: 15px;
 }
 
 .doctor-image-information-button{
   display: flex;
   justify-content: center;
   align-items: start;
-  margin-bottom: 15px;
 }
 
 .doctor-image{
   width: 256px;
   height: 256px;
   border-radius: 5px;
-  margin-right: 60px;
+  // margin-right: 60px;
   object-fit: cover;
 }
 

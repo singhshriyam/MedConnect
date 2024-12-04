@@ -339,7 +339,7 @@ hospital_positions = ["oncology", "gastroentorology", "psychiatry", "family", "o
 downtown = ["berlin", "lübeck", "frankfurt", "hannover", "düsseldorf", "essen", "dortmund", "leipzig", "stuutgard", "hamburg", "cologne", "nuremburg"]
 
 puts "seeding doctors"
-50.times do
+20.times do
   user = users.sample
   doctor = Doctor.create!(
     first_name: user.first_name,

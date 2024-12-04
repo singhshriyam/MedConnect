@@ -1,29 +1,45 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :set_appointment, only: %i[index create]
+
   def index
     @appointments_as_doctor = Appointment.where(doctor: current_user)
     @appointments_as_patient = Appointment.where(user: current_user)
-    @appointment = Appointment.find(params[:appointment_id])
     @message = Message.new
+    @message_target = (current_user == @appointment.doctor ? "Dr. #{@appointment.doctor.full_name}" : "#{@appointment.user.first_name.capitalize}")
     @messages = @appointment.messages.order(created_at: :asc)
   end
 
   def create
-    @appointment = Appointment.find(params[:appointment_id])
     @message = Message.new(message_params)
     @message.appointment = @appointment
     @message.user = current_user
     if @message.save
-      redirect_to appointment_messages_path(@appointment)
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append(:messages, partial: "messages/message", target: "messages", locals: { message: @message })
+        end
+        format.html { redirect_to appointment_messages_path(@appointment) }
+      end
     else
-      render "appointments/show", status: :unprocessable_entity
+      render "messages/index", status: :unprocessable_entity
     end
   end
 
   private
 
+  def set_appointment
+    @appointment = Appointment.find(params[:appointment_id])
+  end
+
   def message_params
     params.require(:message).permit(:content)
   end
 end
+
+#   if @message.save
+#     redirect_to appointment_messages_path(@appointment)
+#   else
+#     render "messages/index", status: :unprocessable_entity
+#   end
+# end

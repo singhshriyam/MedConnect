@@ -27,7 +27,7 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
-    # @doctor = @appointment.doctors
+    @doctor = @appointment.doctor
   end
 
   private

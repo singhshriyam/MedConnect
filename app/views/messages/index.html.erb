@@ -1,20 +1,15 @@
 
 <div class="container chat">
-  <h1>Messages with Dr. <%= @appointment.doctor.last_name.capitalize %></h1>
-
+  <h1>Messages with <%= @message_target%></h1>
+  <!--Current user: <%= current_user.first_name %> / Patient: <%= @appointment.user.first_name %> / Doctor: <%= @appointment.doctor.first_name %>-->
   <div id="messages" class="messages">
     <% @appointment.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small><strong><%= message.user.first_name.capitalize %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+       <%= render "messages/message", message: message %>
     <% end %>
   </div>
   <div class="container">
-      <%= simple_form_for [@appointment, @message], html: {class: "d-flex"} do |f| %>
-        <%= f.input :content, label: false, placeholder: "Write your message here ",
+      <%= simple_form_for [@appointment, @message], html: {class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
+          <%= f.input :content, label: false, placeholder: "Message #{@message_target}",
           wrapper_html: {class: "flex-grow-1"} %>
         <%= f.submit "Send", class: "btn btn-primary" %>
     <% end %>

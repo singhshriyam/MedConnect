@@ -1,86 +1,77 @@
-.doctor-index-aich1{
-  margin-bottom: 26px;
-  font-size: 72px;
-  margin-left: 0;
-  margin-right: 0;
+.doctor-index-aich1 {
+  margin-top: 2rem;
+  font-size: 4rem;
   color: $blue;
 }
 
-.doctor-index-aich2{
-  margin-top: 26px;
-  margin-bottom: 50px;
-  font-size: 48px;
-  margin-left: 0;
-  margin-right: 0;
+.doctor-index-aich2 {
+  // margin-top: 26px;
+  margin-bottom: 1rem;
+  // font-size: 48px;
   color: $blue;
 }
 
-.doc-index-big-div{
+.doc-index-big-div {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  gap: 1rem;
+  width: 80%;
+  // border: 2px solid blue;
+}
+
+@media(max-width: 992px) {
+  .doc-index-big-div {
+    grid-template-columns: 1fr;
+  }
 }
 
 .doctor-card-frame{
-  // width: 700px;
-  // height: 380px;
   border-radius: 5px;
   border: 2px solid $blue;
 }
 
 .doctor-last_name{
-  // text-align: center;
-  font-size: 4rem;
   color: $blue;
-  // margin-bottom: 15px;
-  // margin-top: 15px;
-}
-
-.doctor-image-information-button{
-  display: flex;
-  justify-content: center;
-  align-items: start;
 }
 
 .doctor-image{
-  width: 256px;
-  height: 256px;
+  width: 170px;
+  height: 170px;
   border-radius: 5px;
   // margin-right: 60px;
   object-fit: cover;
 }
 
 .information-button{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 256px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // align-items: center;
+  // height: 256px;
+  flex-grow: 1;
 }
 
 .pees{
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: space-between;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: start;
+  // align-items: space-between;
 }
 
 .specialization-div{
   display: flex;
   justify-content: space-between;
   align-items: start;
-  width: 350px;
-  margin-bottom: 30px;
 }
 
-.sec-headings-p, .sec-values-p{
+.sec-headings-p, .sec-values-p {
   margin-bottom: 0px;
-  font-size: 30px;
-  margin-top: -12px;
+  font-size: 1.3rem;
+  // margin-top: -12px;
   color: $blue;
 }
 
-.sec-headings-p{
+.sec-headings-p {
   font-weight: 600;
 }
 
@@ -89,7 +80,7 @@
 }
 
 .link-knopf{
-  width: 235px;
+  // width: 235px;
   background-color: $blue;
   border-radius: 5px;
   text-align: center;

@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   def index
     @appointments_as_doctor = Appointment.where(doctor: current_user)
     @appointments_as_patient = Appointment.where(user: current_user)
+    @room_link = @appointment.room_link
     @message = Message.new
     @message_target = (current_user == @appointment.doctor ? "Dr. #{@appointment.doctor.full_name}" : "#{@appointment.user.first_name.capitalize}")
     @messages = @appointment.messages.order(created_at: :asc)

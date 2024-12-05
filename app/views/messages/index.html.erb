@@ -1,17 +1,44 @@
+<div class="container chat d-flex">
+  <div class="row w-100">
+     <div class="col-md-8">
+      <div class="video-container">
+        <script>
+          let myLink = '<%= @room_link %>';
 
-<div class="container chat">
-  <h1>Messages with <%= @message_target%></h1>
-  <!--Current user: <%= current_user.first_name %> / Patient: <%= @appointment.user.first_name %> / Doctor: <%= @appointment.doctor.first_name %>-->
-  <div id="messages" class="messages">
-    <% @appointment.messages.each do |message| %>
-       <%= render "messages/message", message: message %>
-    <% end %>
-  </div>
-  <div class="container">
+          const containerChat = document.querySelector('.chat');
+          const videoContainer = document.querySelector('.video-container');
+
+          window.callFrame = window.DailyIframe.createFrame(videoContainer, {
+            showLeaveButton: true,
+            iframeStyle: {
+              width: '100%',
+              height: `${containerChat.offsetHeight}px`,
+              border: '0'
+            }
+          });
+
+          callFrame.join({ url: myLink });
+        </script>
+      </div>
+    </div>
+    
+  <div class="col-md-4">
+    <h1>Messages with <%= @message_target%></h1>
+    <!--Current user: <%= current_user.first_name %> / Patient: <%= @appointment.user.first_name %> / Doctor: <%= @appointment.doctor.first_name %>-->
+    <div id="messages" class="messages">
+      <% @appointment.messages.each do |message| %>
+         <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+    
+    <div class="container">
       <%= simple_form_for [@appointment, @message], html: {class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
-          <%= f.input :content, label: false, placeholder: "Message #{@message_target}",
-          wrapper_html: {class: "flex-grow-1"} %>
+        <%= f.input :content, label: false, placeholder: "Message #{@message_target}",
+        wrapper_html: {class: "flex-grow-1"} %>
         <%= f.submit "Send", class: "btn btn-primary" %>
-    <% end %>
+      <% end %>
+    </div>
+   </div>
+
   </div>
 </div>

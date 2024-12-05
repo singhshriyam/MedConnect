@@ -17,7 +17,7 @@
   <% else %>
     <h2 class="doctor-index-aich2">Please choose a doctor</h2>
   <% end %>
-  <div class="card-search-big d-flex justify-content-between">
+  <div class="card-search-big d-flex justify-content-center">
     <div class="doc-index-big-div me-3">
       <% @doctors.uniq { |doctor| "#{doctor.first_name} #{doctor.last_name}" }.each do |doctor| %>
         <div class="doctor-card-frame d-flex flex-column p-3">

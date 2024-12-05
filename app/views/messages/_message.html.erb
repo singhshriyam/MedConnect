@@ -1,6 +1,6 @@
-<div id="message-<%= message.id %>">
-  <small><strong><%= message.user.first_name.capitalize %></strong>
+<div id="message-<%= message.id%>"class="message <%= message.user === user ? 'sent' : 'received' %>">
+  <small class="message-info"><strong><%= message.user.first_name.capitalize %></strong>
     <i><%= message.created_at.in_time_zone("Europe/Berlin").strftime("%a %b %e at %l:%M %p") %></i>
   </small>
-  <p><%= message.content %></p>
+  <p class="message-content"><%= message.content %></p>
 </div>

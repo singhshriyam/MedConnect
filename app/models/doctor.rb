@@ -11,7 +11,7 @@ class Doctor < ApplicationRecord
   validates :first_name, :last_name, :city, :description, presence: true
 
   def full_name
-    return "Dr. #{first_name.capitalize} #{last_name.capitalize}"
+    return "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
   def formatted_availability

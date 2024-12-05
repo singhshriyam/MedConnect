@@ -40,7 +40,7 @@
         <% @appointments_as_doctor.each do |appointment| %>
           <div class="card shadow-sm my-3">
             <div class="card-header text-white bg-primary">
-              Appointment with <%= appointment.user.first_name.capitalize %><%= appointment.user.last_name.capitalize %>
+              Appointment with <%= appointment.user.first_name.capitalize %><%= appointment.user.email %>
             </div>
             <div class="card-body">
               <p><strong>Message:</strong> <%= appointment.message %></p>

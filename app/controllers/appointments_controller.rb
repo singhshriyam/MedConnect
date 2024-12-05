@@ -26,6 +26,7 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+    @doctor = @appointment.doctor
     # Create or retrieve the video room link for this appointment
     @room_link = @appointment.room_link || create_room_for_appointment(@appointment)
   end

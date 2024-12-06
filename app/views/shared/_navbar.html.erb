@@ -1,21 +1,21 @@
-<div class="navbar">
-  <div>
+<div class="navbar d-flex flex-sm-column flex-md-column flex-lg-row">
+  <div class="px-sm-0 px-md-5 px-lg-5">
     <span class="med">Med</span><span class="connect">Connect</span>
   </div>
-  <div>
-    <%= link_to "Home", root_path %>
-    <%= link_to "About", about_path %>
+  <div class="right-footer-links d-flex flex-sm-column flex-md-row align-items-sm-center justify-content-md-between">
+    <%= link_to "Home", root_path, class: "px-sm-2 px-md-5 px-lg-5" %>
+    <%= link_to "About", about_path, class: "px-sm-2 px-md-3 px-lg-5" %>
     <% if user_signed_in? %>
-      <%= link_to "Profile", profile_path %>
+      <%= link_to "Profile", profile_path, class: "px-sm-2 px-md-5 px-lg-5" %>
     <% else %>
-      <%= link_to "Profile", new_user_session_path %>
+      <%= link_to "Profile", new_user_session_path, class: "px-sm-2 px-md-5 px-lg-5" %>
     <% end %>
-    <%= link_to "Get in touch", getintouch_path %>
+    <%= link_to "Get in touch", getintouch_path, class: "px-sm-2 px-md-5 px-lg-5" %>
     <% if user_signed_in? %>
       <%= link_to "Logout", destroy_user_session_path, data: { method: :delete, turbo: true } %>
       <%= button_to "Logout", destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Login", new_user_session_path , class: "px-sm-2 px-md-5 px-lg-5"%>
     <% end %>
   </div>
 </div>

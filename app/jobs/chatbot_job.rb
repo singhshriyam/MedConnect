@@ -6,7 +6,7 @@ class ChatbotJob < ApplicationJob
     chatgpt_response = client.chat(
       parameters: {
         model: "gpt-4o-mini",
-        messages: questions_formatted_for_openai # to code as private method
+        messages: questions_formatted_for_openai
       }
     )
     new_content = chatgpt_response["choices"][0]["message"]["content"]
@@ -29,13 +29,19 @@ class ChatbotJob < ApplicationJob
   def questions_formatted_for_openai
     questions = @question.user.questions
     results = []
-    system_text = "You are an assistant for an e-commerce website.
-    1. Always say the name of the doctors.
-    2. If you don't know the answer, you can say 'I don't know.
-    If you don't have any doctors at the end of this message, say we don't have that.
-    Here are the doctors you should use to answer the user's questions: "
+    system_text = <<~SYSTEM
+      You are an interactive assistant for a healthcare platform:
+      1. Provide information about doctors, healthcare queries, appointment processes, and platform features.
+      2. Maintain conversation context to handle follow-up questions seamlessly.
+      3. Include emojis to make responses engaging. Example: "Would you like to book an appointment? 😊"
+      4. After responding, prompt the user: "Was this helpful? (Yes/No)"
+      5. If unsure about an answer, suggest contacting support or checking the FAQ.
+
+      Here is the list of doctors available:
+    SYSTEM
+
     nearest_doctors.each do |doctor|
-      system_text += "** Doctor #{doctor.full_name}: experience: #{doctor.experience}, description: #{doctor.description} **"
+      system_text += "** Doctor #{doctor.full_name}: experience: #{doctor.experience}, description: #{doctor.description} **\n"
     end
     results << { role: "system", content: system_text }
 

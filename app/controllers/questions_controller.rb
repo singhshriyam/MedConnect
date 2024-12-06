@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :delete_all
 
   def index
-    @questions = current_user ? current_user.questions : Question.all
+    @questions = current_user ? current_user.questions : []
     @question = Question.new
   end
 

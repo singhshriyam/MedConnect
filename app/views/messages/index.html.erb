@@ -1,5 +1,6 @@
 <div class="container chat d-flex">
   <div class="row w-100">
+    
     <div class="col-md-8">
       <div class="video-container">
         <script>
@@ -21,6 +22,7 @@
         </script>
       </div>
     </div>
+    
     <div class="col-md-4">
       <div class="message-box">
         <h2>Messages with <%= @message_target%> </h2>
@@ -39,8 +41,9 @@
             <%= f.submit "Send", class: "btn btn-primary mb-3" %>
           <% end %>
         </div>
+        
       </div>
     </div>
+    
   </div>
-
 </div>

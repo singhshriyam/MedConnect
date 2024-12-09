@@ -16,7 +16,7 @@
             <li class="list-group-item"><strong>Medical History:</strong> <%= @appointment.medical_history %></li>
             <li class="list-group-item"><strong>User:</strong> <%= @appointment.user.email %></li>
             <li class="list-group-item"><strong>Price:</strong> <%= @appointment.doctor.price_per_hour %> € / h</li>
-            <li class="list-group-item"> <%= link_to "Messages with Dr. #{@appointment.doctor.last_name.capitalize}", appointment_messages_path(@appointment), class: "btn btn-outline-primary", style: "color: $blue; border-color: $blue;" %></li>
+            <li class="list-group-item"> <%= link_to "Messages with #{@message_target}", appointment_messages_path(@appointment), class: "btn btn-outline-primary", style: "color: $blue; border-color: $blue;" %></li>
           </ul>
         </div>
         <div class="card-footer text-center">

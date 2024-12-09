@@ -14,6 +14,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   width: 100%;
+  // height: 100vh;
+
 }
 
 @media(max-width: 992px) {
@@ -25,6 +27,7 @@
 .doctor-card-frame{
   border-radius: 5px;
   border: 2px solid $blue;
+  height: 272px;
 }
 
 .doctor-last_name{
@@ -35,24 +38,16 @@
   width: 170px;
   height: 170px;
   border-radius: 5px;
-  // margin-right: 60px;
   object-fit: cover;
 }
 
 .information-button{
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
-  // align-items: center;
-  // height: 256px;
+
   flex-grow: 1;
 }
 
 .pees{
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: start;
-  // align-items: space-between;
+
 }
 
 .specialization-div{
@@ -64,7 +59,6 @@
 .sec-headings-p, .sec-values-p {
   margin-bottom: 0px;
   font-size: 1.3rem;
-  // margin-top: -12px;
   color: $blue;
 }
 

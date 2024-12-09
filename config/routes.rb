@@ -18,10 +18,12 @@ Rails.application.routes.draw do
 
   resources :appointments, only: %i[index show] do
     resources :messages, only: %i[create index]
+      member do
+        patch :update_prescription
+      end
   end
 
   resources :questions, only: %i[index create] do
     delete "delete_all", on: :collection
   end
-
 end

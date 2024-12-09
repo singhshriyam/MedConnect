@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  skip_before_action :verify_authenticity_token, only: :delete_all
+  after_action :clear_questions, only: [:index]
 
   def index
     @questions = current_user ? current_user.questions : []
@@ -24,10 +24,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def delete_all
-    Questions.destroy_all
-    head :no_content
-  end
 
   private
 
@@ -35,4 +31,7 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:user_question)
   end
 
+  def clear_questions
+    Question.where(user_id: current_user.id).destroy_all
+  end
 end

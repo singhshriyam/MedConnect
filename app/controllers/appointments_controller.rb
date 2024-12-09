@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments_as_user = current_user.appointments
-    @appointments_as_doctor = current_user.doctor.appointments
+    @appointments_as_doctor = current_user.doctor.appointments unless current_user.doctor.nil?
   end
 
   def new
@@ -29,6 +29,7 @@ class AppointmentsController < ApplicationController
     @doctor = @appointment.doctor
     # Create or retrieve the video room link for this appointment
     @room_link = @appointment.room_link || create_room_for_appointment(@appointment)
+    @message_target = (current_user == @appointment.doctor.user ? @appointment.user.first_name.capitalize : "Dr. #{@appointment.doctor.full_name}" )
   end
 
   private
@@ -59,5 +60,4 @@ class AppointmentsController < ApplicationController
       nil
     end
   end
-
 end

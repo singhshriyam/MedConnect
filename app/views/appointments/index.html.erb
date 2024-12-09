@@ -36,7 +36,7 @@
     <%# Appointments as a doctor section %>
     <div class="col-md-12" data-appointments-toggle-target="doctorAppointments">
       <h2 class="mt-4" style="color: <%= $blue %>;">Appointments as a Doctor:</h2>
-      <% if @appointments_as_doctor.any? %>
+      <% if @appointments_as_doctor %>
         <% @appointments_as_doctor.each do |appointment| %>
           <div class="card shadow-sm my-3">
             <div class="card-header text-white bg-primary">

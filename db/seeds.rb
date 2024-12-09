@@ -369,7 +369,7 @@ doctors.each do |doctor|
 end
 
 puts "seeding appointments"
-5.times do
+50.times do
   Appointment.create!(
     starts_at: Faker::Time.between_dates(from: Date.today, to: Date.today + 30, period: :day),
     ends_at: Faker::Time.between_dates(from: Date.today + 31, to: Date.today + 60, period: :day),
@@ -386,7 +386,7 @@ end
 appointments = Appointment.all
 
 puts "seeding messages"
-5.times do
+50.times do
   Message.create!(
     content: Faker::Lorem.sentence(word_count: 15),
     appointment_id: appointments.sample.id,

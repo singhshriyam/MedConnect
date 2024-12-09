@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_04_111716) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_09_102903) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "vector"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,12 +60,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_04_111716) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
-  create_table "consultations", force: :cascade do |t|
-    t.string "room_link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "doctors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -78,6 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_04_111716) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.vector "embedding", limit: 1536
     t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 

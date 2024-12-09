@@ -11,11 +11,12 @@
     height: 87vh;
   }
 
-  h1 {
+  h2 {
    border-bottom: 1px solid $gray-200;
    margin-bottom: 0;
    padding: 1rem;
   }
+
   .message {
     display: flex;
     flex-direction: column;
@@ -27,15 +28,17 @@
     overflow: scroll;
     padding: 1rem;
   }
-  //remove the scrollbar view
+  //remove the scrollbar-view
   .messages::-webkit-scrollbar {
     display: none;
   }
+
   #new_message {
     border-top: 1px solid $gray-200;
     padding-top: 1rem;
     align-items: center;
   }
+  
   .form-group {
     margin-bottom: 0;
   }

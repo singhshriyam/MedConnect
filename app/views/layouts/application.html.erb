@@ -21,8 +21,7 @@
     <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
   </head>
 
-  <body>
-
+   <body data-current-user-id="<%= current_user ? current_user.id : "" %>">
     <%# <div class="pages-container d-flex flex-column min-vh-100"> %>
     <div class="pages-container">
       <div class="navbar-container"><%= render "shared/navbar" %></div>

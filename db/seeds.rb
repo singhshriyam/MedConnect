@@ -320,7 +320,7 @@ end
 languages = Language.all
 
 puts "seeding users"
-20.times do
+5.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -328,7 +328,7 @@ puts "seeding users"
     password: Faker::Internet.password(min_length: 6),
     year_of_birth: Faker::Number.between(from: 1950, to: 2005)
   )
-  file = URI.open("https://picsum.photos/200")
+  file = URI.open("https://picsum.photos/images")
   user.photo.attach(io: file, filename: "#{user.first_name.downcase}_profile.png", content_type: "image/png")
 end
 
@@ -339,7 +339,7 @@ hospital_positions = ["oncology", "gastroentorology", "psychiatry", "family", "o
 downtown = ["berlin", "lübeck", "frankfurt", "hannover", "düsseldorf", "essen", "dortmund", "leipzig", "stuutgard", "hamburg", "cologne", "nuremburg"]
 
 puts "seeding doctors"
-20.times do
+5.times do
   user = users.sample
   doctor = Doctor.create!(
     first_name: user.first_name,
@@ -347,7 +347,7 @@ puts "seeding doctors"
     experience: Faker::Number.between(from: 1, to: 40),
     specialization: hospital_positions.sample,
     city: downtown.sample,
-    description: Faker::Lorem.sentence(word_count: 20),
+    description: Faker::Lorem.sentence(word_count: 30),
     education: Faker::University.name,
     availability: "M 10:00-17:00 / T 9:00-16:00 / W 9:00-16:00 / R 9:00-16:00 / F 10:00-14:00",
     user_id: user.id,
@@ -360,7 +360,7 @@ doctors = Doctor.all
 
 puts "seeding language ability"
 doctors.each do |doctor|
-  rand(2..4).times do
+  rand(2..3).times do
     LanguageAbility.create!(
       doctor_id: doctor.id,
       language_id: languages.sample.id

@@ -74,7 +74,7 @@
   </div>
   <!--Here goes the location-->
   <div class="location">
-    <%= image_tag "locationpin.png", class: "location-img-tag" %>
+    <%# <%= image_tag "locationpin.png", class: "location-img-tag" %>
     <h3>Search</h3>
     <%= form_with url: doctors_path, method: :get, class: "search-form" do %>
       <%= text_field_tag :city,

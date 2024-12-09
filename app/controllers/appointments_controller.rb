@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments_as_user = current_user.appointments
-    @appointments_as_doctor = current_user.doctor.appointments
+    @appointments_as_doctor = current_user.doctor&.appointments || []
   end
 
   def new

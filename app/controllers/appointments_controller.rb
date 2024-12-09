@@ -29,6 +29,7 @@ class AppointmentsController < ApplicationController
     @doctor = @appointment.doctor
     # Create or retrieve the video room link for this appointment
     @room_link = @appointment.room_link || create_room_for_appointment(@appointment)
+    @message_target = (current_user == @appointment.doctor.user ? @appointment.user.first_name.capitalize : "Dr. #{@appointment.doctor.full_name}" )
   end
 
   private
@@ -59,5 +60,4 @@ class AppointmentsController < ApplicationController
       nil
     end
   end
-
 end

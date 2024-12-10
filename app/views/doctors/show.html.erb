@@ -10,49 +10,53 @@
     </div>
     <div class="picture-card-text">
       <h1 class="zain blue"> Dr. <%= @doctor.last_name.capitalize %></h1>
-      <h2>Speciality: <%= @doctor.specialization.capitalize %></h1>
-      <h3>Location: <%= @doctor.city.capitalize %></h3>
-      <h3>Experience: <%= @doctor.experience %> Years</h3>
+      <h2 class="zain-light">Speciality: <%= @doctor.specialization.capitalize %></h1>
+      <h3 class="zain-light">Location: <%= @doctor.city.capitalize %></h3>
+      <h3 class="zain-light">Experience: <%= @doctor.experience %> Years</h3>
       <div id="book"><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%></div>
     </div>
   </div>
-  <!--card 2 - services, availability and price card-->
+  <!--card 2 - description-->
+  <div class="dr-centered-card">
+    <%= @doctor.description %>
+  </div>
+  <!--card 3 - services, availability and price card-->
   <div class="doctor-service-wrap">
     <div class="column">
-      <h3 class="zain blue">Services</h3>
+      <h3 class="zain blue">SERVICES</h3>
         <div class="column-text"><ul>
           <% @description_list.each do |phrase| %>
-            <li><%= phrase %></li>
+            <li class="zain-light"><%= phrase %></li>
           <% end %>
         </ul></div>
     </div>
     <div class="column">
-      <h3 class="zain blue">Availability</h3>
+      <h3 class="zain blue">AVAILABILITY</h3>
       <div class="column-text">
         <ul>
           <% @availability_list.each do |availability| %>
-            <li><%= availability %></li>
+            <li class="zain-light"><%= availability %></li>
             <% end %>
         </ul>
       </div>
     </div>
     <div class="column">
-      <h3 class="zain blue">Price </h3><div class="price"><%= @doctor.price_per_hour %> €/h </div>
+      <h3 class="zain blue">Price </h3><div class="zain-light price"><%= @doctor.price_per_hour %> €/h </div>
     </div>
   </div>
-  <!--card 3 - languages card-->
+  <!--card 4 - languages card-->
   <div class="dr-centered-card">
     <h3 class="zain blue">Languages</h3>
-    <div class="dr-languages zain-bold">
+    <div class="dr-languages zain">
       <%@doctor.languages.uniq { |language| "#{language.name}" }.each do |language| %>
         <div class="language-rounded"> <%= language.name.capitalize %>  </div>
       <% end %>
     </div>
   </div>
-  <!--card 4- education card-->
+  <!--card 5- education card-->
   <div class="dr-centered-card">
     <h3 class="zain blue">Education</h3>
-    <div class="zain-regular">
+    <div class="zain-light">
       <%=@doctor.education%><br>Berlin School of Mind and Brain *Einstein Doctoral Programme 2017
     </div>
   </div>

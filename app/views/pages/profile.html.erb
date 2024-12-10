@@ -18,7 +18,7 @@
     </div>
 
     <div class="profile-item">
-      <label for="email">Email Address:</label>
+      <label for="email">Email:</label>
       <span id="email"><%= current_user.email %></span>
     </div>
 
@@ -110,12 +110,12 @@
     <!-- past medication Field (Only Show if Present) -->
     <% if current_user.p_medication.present? %>
       <div class="profile-item">
-        <label for="p_medication">Past medication:</label>
+        <label for="p_medication">Medication:</label>
         <span id="p_medication"><%= current_user.p_medication %></span>
       </div>
     <% else %>
       <div class="profile-item">
-        <label for="p_medication">Past medication:</label>
+        <label for="p_medication">Medication:</label>
         <span id="p_medication">N/A</span>
       </div>
     <% end %>
@@ -148,12 +148,12 @@
 
     <% if current_user.chronic_diseases.present? %>
       <div class="profile-item">
-        <label for="chronic_diseases">Chronic Diseases:</label>
+        <label for="chronic_diseases">Diseases:</label>
         <span id="chronic_diseases"><%= current_user.chronic_diseases %></span>
       </div>
     <% else %>
       <div class="profile-item">
-        <label for="chronic_diseases">Chronic Diseases:</label>
+        <label for="chronic_diseases">Diseases:</label>
         <span id="chronic_diseases">N/A</span>
       </div>
     <% end %>
@@ -168,10 +168,10 @@
       <%= link_to doctor_path(current_user.doctor), style: "text-decoration: none; color: inherit;" do %>
         <div class="doctor-container">
           <ul>
-            <strong class="text">Name:</strong> Dr. <%= current_user.doctor.last_name %><br>
-            <strong class="text">Specialization:</strong> <%= current_user.doctor.specialization %><br>
-            <strong class="text">Experience:</strong> <%= current_user.doctor.experience %><br>
-            <strong class="text">Description:</strong> <%= current_user.doctor.description %><br>
+            <strong class="text">Name:</strong> <span class="details"> Dr. <%= current_user.doctor.last_name %><br>
+            <strong class="text">Specialization:</strong> <span class="details"> <%= current_user.doctor.specialization %><br>
+            <strong class="text">Experience:</strong> <span class="details"> <%= current_user.doctor.experience %><br>
+            <strong class="text">Description:</strong> <span class="details"> <%= current_user.doctor.description %><br>
           </ul>
           <% if current_user.doctor.photo.attached? %>
             <%= cl_image_tag current_user.doctor.photo.key, alt: "Profile Picture", style: "width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" %>

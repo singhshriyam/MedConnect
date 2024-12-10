@@ -20,6 +20,7 @@
 }
 
 .location h3 {
+  font-size: 32px;
   padding-top: 10px;
   padding-left: 50px;
   padding-right: 50px;
@@ -34,16 +35,21 @@
 
 .location-input {
   flex: 1;
-  padding: 5px;
-  font-size: 14px;
+  padding: 2px;
+  font-size: 20px;
   width: 200px;
 }
 
 .search-btn {
-  padding: 5px 30px;
-  font-size: 14px;
   white-space: nowrap;
   margin-right: 50px;
+  color: #008C99;
+  font-size: 20px;
+  background-color: #f0f0f0;
+  padding: 2px 24px;
+  border-radius: 5px;
+  transition: 0.6s ease;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 //From here down it is for the other type of search box in the doctor's index view.(Some classes from the original search box are being borrowed in this new search box)//

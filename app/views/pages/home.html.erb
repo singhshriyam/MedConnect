@@ -38,7 +38,7 @@
 
   <div id="help-icon">
     <%= link_to (user_signed_in? ? questions_path : new_user_session_path), class: "help-link", aria: { label: "How may I help you?" } do %>
-      <i class="fa-regular fa-comments"></i>
+      <i class="fa-solid fa-comment-medical" style="color: #ffffff;"></i>
     <% end %>
   </div>
 
@@ -83,7 +83,7 @@
           params[:specialization], placeholder: "Enter the specialization", class: "form-control location-input" %>
       <%= text_field_tag :languages,
           params[:languages], placeholder: "Enter your language", class: "form-control location-input" %>
-      <%= submit_tag "Search", class: "btn btn-doc search-btn", id: "searchy" %>
+      <%= submit_tag "Search", class: "btn search-btn", id: "searchy" %>
     <% end %>
   </div>
 

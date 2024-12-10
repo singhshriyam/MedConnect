@@ -5,21 +5,21 @@
         <div class="card-header text-white text-center bg-primary">
           <h2>Appointment Details</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-white fs-5">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>Doctor: </strong> <b><%= @appointment.doctor.full_name %></b></li>
-            <li class="list-group-item"><strong>Specialization:</strong> <%= @appointment.doctor.specialization.capitalize %></li>
-            <li class="list-group-item"><strong>Start Time:</strong> <%= @appointment.starts_at.strftime('%B %d, %Y %I:%M %p') %></li>
-            <li class="list-group-item"><strong>End Time:</strong> <%= @appointment.ends_at.strftime('%B %d, %Y %I:%M %p') %></li>
-            <li class="list-group-item"><strong>Message:</strong> <%= @appointment.message %></li>
-            <li class="list-group-item"><strong>Symptoms:</strong> <%= @appointment.symptoms %></li>
-            <li class="list-group-item"><strong>Medical History:</strong> <%= @appointment.medical_history %></li>
-            <li class="list-group-item"><strong>User:</strong> <%= @appointment.user.email %></li>
-            <li class="list-group-item"><strong>Price:</strong> <%= @appointment.doctor.price_per_hour %> € / h</li>
-            <li class="list-group-item"> <%= link_to "Messages with #{@message_target}", appointment_messages_path(@appointment), class: "btn btn-outline-primary", style: "color: $blue; border-color: $blue;" %></li>
+            <li class="list-group-item bg-white"><strong>Doctor: </strong> <b><%= @appointment.doctor.full_name %></b></li>
+            <li class="list-group-item bg-white"><strong>Specialization:</strong> <%= @appointment.doctor.specialization.capitalize %></li>
+            <li class="list-group-item bg-white"><strong>Start Time:</strong> <%= @appointment.starts_at.strftime('%B %d, %Y %I:%M %p') %></li>
+            <li class="list-group-item bg-white"><strong>End Time:</strong> <%= @appointment.ends_at.strftime('%B %d, %Y %I:%M %p') %></li>
+            <li class="list-group-item bg-white"><strong>Message:</strong> <%= @appointment.message %></li>
+            <li class="list-group-item bg-white"><strong>Symptoms:</strong> <%= @appointment.symptoms %></li>
+            <li class="list-group-item bg-white"><strong>Medical History:</strong> <%= @appointment.medical_history %></li>
+            <li class="list-group-item bg-white"><strong>User:</strong> <%= @appointment.user.email %></li>
+            <li class="list-group-item bg-white"><strong>Price:</strong> <%= @appointment.doctor.price_per_hour %> € / h</li>
+            <li class="list-group-item bg-white"> <%= link_to "Messages with #{@message_target}", appointment_messages_path(@appointment), class: "btn btn-outline-primary", style: "color: $blue; border-color: $blue;" %></li>
           </ul>
         </div>
-        <div class="card-footer text-center">
+        <div class="card-footer text-center bg-white">
           <%= link_to 'Back to Appointments', appointments_path, class: "btn btn-outline-primary", style: "color: $blue; border-color: $blue;" %>
         </div>
       </div>

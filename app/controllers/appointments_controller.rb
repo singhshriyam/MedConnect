@@ -32,6 +32,12 @@ class AppointmentsController < ApplicationController
     @message_target = (current_user == @appointment.doctor.user ? @appointment.user.first_name.capitalize : "Dr. #{@appointment.doctor.full_name}" )
   end
 
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
+    redirect_to appointments_path, status: :see_other
+  end
+
   private
 
   def appointment_params

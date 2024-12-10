@@ -25,6 +25,9 @@
               <p><strong>Medical History:</strong> <%= appointment.medical_history %></p>
               <p><strong>User Name:</strong> <%= appointment.user.email %></p>
               <%= link_to "View Details", appointment_path(appointment), class: "btn btn-outline-primary mt-2", style: "color: #{@blue}; border-color: #{@blue};" %>
+              <%= link_to "Delete Appointment", appointment_path(appointment),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this appointment?" },
+                  class: "btn btn-danger mt-2" %>
             </div>
           </div>
         <% end %>
@@ -36,7 +39,7 @@
     <%# Appointments as a doctor section %>
     <div class="col-md-12" data-appointments-toggle-target="doctorAppointments">
       <h2 class="mt-4" style="color: <%= $blue %>;">Appointments as a Doctor:</h2>
-      <% if @appointments_as_doctor %>
+      <% if @appointments_as_doctor.any? %>
         <% @appointments_as_doctor.each do |appointment| %>
           <div class="card shadow-sm my-3">
             <div class="card-header text-white bg-primary">
@@ -48,6 +51,9 @@
               <p><strong>Medical History:</strong> <%= appointment.medical_history %></p>
               <p><strong>Scheduled Time:</strong> <%= appointment.starts_at.strftime("%B %d, %Y %I:%M %p") %> - <%= appointment.ends_at.strftime("%B %d, %Y %I:%M %p") %></p>
               <%= link_to "View Details", appointment_path(appointment), class: "btn btn-outline-primary mt-2", style: "color: #{@blue}; border-color: #{@blue};" %>
+              <%= link_to "Delete Appointment", appointment_path(appointment),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this appointment?" },
+                  class: "btn btn-danger mt-2" %>
             </div>
           </div>
         <% end %>

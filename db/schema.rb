@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_09_102903) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_09_134302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "vector"
@@ -64,6 +64,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_09_102903) do
     t.string "room_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "doctor_reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "comment"
+    t.bigint "user_id", null: false
+    t.bigint "doctor_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "rating"
+    t.index ["doctor_id"], name: "index_doctor_reviews_on_doctor_id"
+    t.index ["user_id"], name: "index_doctor_reviews_on_user_id"
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -266,6 +278,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_09_102903) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "doctors"
   add_foreign_key "appointments", "users"
+  add_foreign_key "doctor_reviews", "doctors"
+  add_foreign_key "doctor_reviews", "users"
   add_foreign_key "doctors", "users"
   add_foreign_key "language_abilities", "doctors"
   add_foreign_key "language_abilities", "languages"

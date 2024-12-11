@@ -1,5 +1,4 @@
 class DoctorsController < ApplicationController
-
   def index
     @doctors = Doctor.all
     @doctors = @doctors.where(city: params[:city].downcase) if params[:city].present?
@@ -8,7 +7,9 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    @doctor = Doctor.find_by(id: params[:id])
+    @doctor = Doctor.find(params[:id])
+    @doctor_reviews = @doctor.doctor_reviews
+    @first_reviews = @doctor_reviews.to_a.shift(2)
     redirect_to doctors_path, alert: "Doctor not found." if @doctor.nil?
     @description_list = @doctor.description.split(/(?<=\.)|\n/).map(&:strip).reject(&:empty?)
     @availability_list = @doctor.formatted_availability

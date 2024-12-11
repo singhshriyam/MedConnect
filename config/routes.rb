@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :doctors, only: %i[index show update new create]
   resources :doctors do
     resources :appointments, only: %i[new create]
+    resources :doctor_reviews, only: %i[new create]
   end
 
   resources :appointments, only: %i[index show destroy] do

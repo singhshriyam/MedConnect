@@ -1,0 +1,20 @@
+<div class="container py-5" style="height: calc(100vh - 150px);">
+  <h1 class="row justify-content-center mb-5 mt-5">Please write a review about Dr. <%= @doctor.last_name.capitalize %></h1>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-header text-center bg-primary text-white">
+          <h3>Review</h3>
+        </div>
+        <div class="card-body bg-white">
+            <%= simple_form_for [@doctor, @doctor_review] do |form| %>
+            <%= form.input :title, label_html: {class: "form-label text"} %>
+            <%= form.input :comment, label_html: {class: "form-label text"} %>
+            <%= form.input :rating, label_html: {class: "form-label text"} %>
+            <%= form.submit "Create a Review", class: "btn btn-doc w-100" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

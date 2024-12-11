@@ -17,6 +17,7 @@ LanguageAbility.delete_all
 Language.delete_all
 Doctor.delete_all
 User.delete_all
+DoctorReview.delete_all
 
 user1 = User.create!(
   first_name: "joel mario",
@@ -392,6 +393,20 @@ puts "seeding messages"
     appointment_id: appointments.sample.id,
     user_id: users.sample.id
   )
+end
+
+puts "Seeding doctor reviews"
+
+doctors.each do |doctor|
+  [3, 4, 5].sample.times do
+    DoctorReview.create!(
+      doctor_id: doctor.id,
+      user_id: User.all.sample.id,
+      title: Faker::Lorem.sentence(word_count: 3),
+      comment: Faker::Lorem.sentence(word_count: 30),
+      rating: [3, 4, 5].sample
+    )
+  end
 end
 
 puts "Seeding completed!"

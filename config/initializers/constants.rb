@@ -97,7 +97,7 @@ SERVICES = {
     "Performance enhancement counseling",
     "Concussion management"
   ],
-  "medicine" => [
+  "generalist" => [
     "Comprehensive physical exams",
     "Management of chronic conditions",
     "Acute illness diagnosis and treatment",
@@ -184,7 +184,7 @@ EDUCATION = {
     "Fellowship in Orthopedic Sports Medicine - Cleveland Clinic, USA, 2018",
     "Certificate in Advanced Sports Injury Rehabilitation - FIFA Medical Centre, 2015"
   ],
-  "medicine" => [
+  "generalist" => [
     "MD in Internal Medicine - AIIMS, India, 2021",
     "Fellowship in Advanced Clinical Medicine - Harvard Medical School, USA, 2018",
     "Diploma in Tropical Medicine and Hygiene - London School of Hygiene and Tropical Medicine, UK, 2016"

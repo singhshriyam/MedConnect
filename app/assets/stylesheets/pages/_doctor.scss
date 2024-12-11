@@ -7,17 +7,20 @@
   font-size: 20px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   border-radius:3px;
-  padding: 0 65px 0 5%;
+  padding: 0px 25px 79px 2%;
+  margin-top: 3px;
   h3 { font-size: 27px;}
   h2 { font-size: 33px;}
 }
 
 .picture-card { // <---- flexbox
   width: 100%;
-  height: 400px;
+  height: 375px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: $back;
+  margin-top: 2%;
 
   img {
     height: 265px;
@@ -29,26 +32,39 @@
   #book { margin-top: 30px; }
 }
 
+#dr-description{
+  padding: 7% 9%;
+  margin-bottom: 0px;
+  h3 {line-height: 1.5em}
+}
+.line{
+  width: 90%;
+}
 .doctor-service-wrap {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 0.7fr;
+  grid-template-columns: 1fr 1fr 0.5fr;
+  padding: 3% 5%;
+  margin-bottom: 35px;
 
   .column {
-    padding: 0 30px;
+    padding: 0 20px;
   }
 
   ul, .price {
     margin-top: 23px;
   }
-
-  ul{
-    padding: 0 0px;
-    list-style-type: none;
-    line-height: 2em;
-  }
 }
 
+ul{
+  padding: 0 0px;
+  list-style-type: none;
+  line-height: 2em;
+}
+#service-li{
+  list-style-type:circle;
+  padding: 0 0px;
+}
 .dr-centered-card { // <---- flexbox
   width: 100%;
   margin-bottom: 35px;

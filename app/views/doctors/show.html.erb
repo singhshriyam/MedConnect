@@ -17,31 +17,34 @@
     </div>
   </div>
   <!--card 2 - description-->
-  <div class="dr-centered-card">
-    <%= @doctor.description %>
+  <div class="dr-centered-card" id="dr-description">
+    <h3 class="zain-light blue"><%= @doctor.description %></h3>
+  <hr class="line blue">
   </div>
   <!--card 3 - services, availability and price card-->
   <div class="doctor-service-wrap">
     <div class="column">
-      <h3 class="zain blue">SERVICES</h3>
-        <div class="column-text"><ul>
-          <% @description_list.each do |phrase| %>
-            <li class="zain-light"><%= phrase %></li>
-          <% end %>
-        </ul></div>
+      <h3 class="zain blue">Services</h3>
+        <div class="column-text">
+          <ul id="service-li">
+            <%SERVICES[@doctor.specialization].each do |service|%>
+             <li> <%= service %></li>
+            <% end %>
+          </ul>
+        </div>
     </div>
     <div class="column">
-      <h3 class="zain blue">AVAILABILITY</h3>
+      <h3 class="zain blue">Availability</h3>
       <div class="column-text">
         <ul>
           <% @availability_list.each do |availability| %>
-            <li class="zain-light"><%= availability %></li>
-            <% end %>
+            <li class="zain"><%= availability %></li>
+          <% end %>
         </ul>
       </div>
     </div>
     <div class="column">
-      <h3 class="zain blue">Price </h3><div class="zain-light price"><%= @doctor.price_per_hour %> €/h </div>
+      <h3 class="zain blue">Price </h3><div class="zain price"><%= @doctor.price_per_hour %> €/h </div>
     </div>
   </div>
   <!--card 4 - languages card-->
@@ -56,12 +59,13 @@
   <!--card 5- education card-->
   <div class="dr-centered-card">
     <h3 class="zain blue">Education</h3>
-    <div class="zain-light">
-      <%=@doctor.education%><br>Berlin School of Mind and Brain *Einstein Doctoral Programme 2017
+    <div class="zain">
+      <ul><%EDUCATION[@doctor.specialization].each do |cualification|%>
+        <li><%= cualification %></li>
+      <% end %></ul>
     </div>
   </div>
 </div>
-
 <div id="back-doctors" >
   <%= link_to 'Back to Doctors', doctors_path, class: 'btn-appointment' %>
 </div>

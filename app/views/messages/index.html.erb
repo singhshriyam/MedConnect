@@ -1,6 +1,6 @@
 <div class="container chat d-flex">
   <div class="row w-100">
-    
+
     <div class="col-md-8">
       <div class="video-container">
         <script>
@@ -22,7 +22,7 @@
         </script>
       </div>
     </div>
-    
+
     <div class="col-md-4">
       <div class="message-box">
         <h2>Messages with <%= @message_target%> </h2>
@@ -40,10 +40,11 @@
               wrapper_html: {class: "flex-grow-1"}, input_html: {class: "input-text"} %>
             <%= f.submit "Send", class: "btn btn-primary mb-3" %>
           <% end %>
+          <%= link_to 'End videocall', appointment_path(@appointment), class: 'btn search-btn' %>
         </div>
-        
+
       </div>
     </div>
-    
+
   </div>
 </div>

@@ -20,7 +20,7 @@
   <div class="card-search-big d-flex justify-content-center">
     <div class="doc-index-big-div me-3">
       <% @doctors.uniq { |doctor| "#{doctor.first_name} #{doctor.last_name}" }.each do |doctor| %>
-        <div class="doctor-card-frame d-flex flex-column p-3">
+        <div class="doctor-card-frame d-flex flex-column">
           <h3 class="doctor-last_name text-center fs-1"><%= "Dr. #{doctor.last_name.capitalize}" %></h3>
           <div class="doctor-image-information-button d-flex">
             <% if doctor.photo.attached? %>

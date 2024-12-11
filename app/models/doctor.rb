@@ -7,6 +7,7 @@ class Doctor < ApplicationRecord
   has_many :users, through: :appointments
   has_neighbors :embedding
   after_create :set_embedding
+  has_many :doctor_reviews
 
   validates :first_name, :last_name, :city, :description, presence: true
 

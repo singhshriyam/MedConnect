@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :doctors, only: %i[index show update new create]
   resources :doctors do
     resources :appointments, only: %i[new create]
+    resources :doctor_reviews, only: %i[new create]
   end
 
   resources :appointments, only: %i[index show] do
@@ -23,5 +24,4 @@ Rails.application.routes.draw do
   resources :questions, only: %i[index create] do
     delete "delete_all", on: :collection
   end
-
 end

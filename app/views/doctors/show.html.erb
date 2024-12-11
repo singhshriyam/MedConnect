@@ -1,59 +1,69 @@
 <div class="dr-container">
   <!--card 1 - doctor's picture and description-->
   <div class="picture-card">
-    <div class="dr-img">
+    <div>
       <%if @doctor.photo.attached? %>
        <%= cl_image_tag @doctor.photo.key %>
       <% else %>
         <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*">
       <% end %>
     </div>
-      <div class="picture-card-text">
-        <h1 class="zain-bold blue">Dr. <%= @doctor.last_name.capitalize %></h1>
-        <div class="card-info-aichtwo"><h3>Specialization:</h3><h3><%= @doctor.specialization.capitalize %></h3></div>
-        <div class="card-info-aichtwo"><h3>Location:</h3><h3><%= @doctor.city.capitalize %></h3></div>
-        <div class="card-info-aichtwo"><h3>Experience:</h3><h3><%= @doctor.experience %> Years</h3></div>
-      </div>
+    <div class="picture-card-text">
+      <h1 class="zain blue"> Dr. <%= @doctor.last_name.capitalize %></h1>
+      <h2 class="zain-light">Speciality: <%= @doctor.specialization.capitalize %></h1>
+      <h3 class="zain-light">Location: <%= @doctor.city.capitalize %></h3>
+      <h3 class="zain-light">Experience: <%= @doctor.experience %> Years</h3>
+      <div id="book"><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%></div>
+    </div>
   </div>
-  <!--card 2 - doctor services and availability card-->
-  <div class="doctor-service-card">
-    <div class="service">
-      <h2 class="zain-bold">Services</h2>
+  <!--card 2 - description-->
+  <div class="dr-centered-card" id="dr-description">
+    <h3 class="zain-light blue"><%= @doctor.description %></h3>
+  <hr class="line blue">
+  </div>
+  <!--card 3 - services, availability and price card-->
+  <div class="doctor-service-wrap">
+    <div class="column">
+      <h3 class="zain blue">Services</h3>
+        <div class="column-text">
+          <ul id="service-li">
+            <%SERVICES[@doctor.specialization].each do |service|%>
+             <li> <%= service %></li>
+            <% end %>
+          </ul>
+        </div>
+    </div>
+    <div class="column">
+      <h3 class="zain blue">Availability</h3>
+      <div class="column-text">
         <ul>
-          <% @description_list.each do |phrase| %>
-            <li><%= phrase %></li>
+          <% @availability_list.each do |availability| %>
+            <li class="zain"><%= availability %></li>
           <% end %>
         </ul>
-    </div>
-    <div class="availability">
-      <h2 class="zain-bold">availability</h2>
-      <div class="schedule">
-        <ul><% @availability_list.each do |availability| %>
-            <li><%= availability %></li>
-            <% end %>
-        </ul>
       </div>
     </div>
-    <div class="price">
-      <h2 class="zain-bold colors">Price per hour </h2><br><p><%= @doctor.price_per_hour %> €/h </p>
+    <div class="column">
+      <h3 class="zain blue">Price </h3><div class="zain price"><%= @doctor.price_per_hour %> €/h </div>
     </div>
   </div>
-  <!--card 3 - languages card-->
-  <div class="dr-languages-card">
-    <h3 class="zain-bold blue">Languages</h3>
-    <div class="dr-languages zain-bold">
+  <!--card 4 - languages card-->
+  <div class="dr-centered-card">
+    <h3 class="zain blue">Languages</h3>
+    <div class="dr-languages zain">
       <%@doctor.languages.uniq { |language| "#{language.name}" }.each do |language| %>
-        <div class="language-rounded"> <%= language.name %>  </div>
+        <div class="language-rounded"> <%= language.name.capitalize %>  </div>
       <% end %>
     </div>
   </div>
-  <!--card 4- education card-->
-  <div class="education-card">
-    <h3 class="zain-bold blue">Education</h3>
-    <div class="education-text zain-regular">
-      <%=@doctor.education%>
+  <!--card 5- education card-->
+  <div class="dr-centered-card">
+    <h3 class="zain blue">Education</h3>
+    <div class="zain">
+      <ul><%EDUCATION[@doctor.specialization].each do |cualification|%>
+        <li><%= cualification %></li>
+      <% end %></ul>
     </div>
-    <p><%= link_to"Book appointment", new_doctor_appointment_path(@doctor), class:"btn-appointment"%></p>
   </div>
   <div class="review-big-sub" data-controller="show-more">
     <div class="make-more">
@@ -106,6 +116,6 @@
     </div>
   </div>
 </div>
-<div class="text-center mt-3 mb-3" id="back-doctors">
-  <%= link_to '< Back to Doctors', doctors_path, class: 'btn-appointment' %>
+<div id="back-doctors" >
+  <%= link_to 'Back to Doctors', doctors_path, class: 'btn-appointment' %>
 </div>

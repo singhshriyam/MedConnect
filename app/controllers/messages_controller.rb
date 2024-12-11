@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     @appointments_as_patient = Appointment.where(user: current_user)
     @room_link = @appointment.room_link
     @message = Message.new
-    @message_target = (current_user == @appointment.doctor ? "Dr. #{@appointment.doctor.full_name}" : "#{@appointment.user.first_name.capitalize}")
+    @message_target = (current_user == @appointment.doctor.user ? @appointment.user.first_name.capitalize : "Dr. #{@appointment.doctor.full_name}" )
     @messages = @appointment.messages.order(created_at: :asc)
   end
 
@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: turbo_stream.append(:messages, partial: "messages/message", target: "messages", locals: { message: @message })
+          render turbo_stream: turbo_stream.append(:messages, partial: "messages/message", target: "messages", locals: { message: @message, user: current_user })
         end
         format.html { redirect_to appointment_messages_path(@appointment) }
       end
@@ -37,10 +37,3 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 end
-
-#   if @message.save
-#     redirect_to appointment_messages_path(@appointment)
-#   else
-#     render "messages/index", status: :unprocessable_entity
-#   end
-# end

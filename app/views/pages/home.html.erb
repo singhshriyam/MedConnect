@@ -4,6 +4,7 @@
     <div class="banner-text">
       <h1>Empowering you to take control of your health</h1>
       <p>We make accessing quality medical care easy, secure, and hassle-free. Book consultations with trusted doctors, get prescriptions, and prioritise your health—all from the comfort of your home.</p>
+      <%= link_to "Explore now", doctors_path, class: "btn btn-doc" %>
     </div>
   </div>
   <!--Here goes the about-->
@@ -36,8 +37,8 @@
   </div>
 
   <div id="help-icon">
-    <%= link_to questions_path, class: "help-link", aria: { label: "How may I help you?" } do %>
-      <i class="fa-regular fa-comments"></i>
+    <%= link_to (user_signed_in? ? questions_path : new_user_session_path), class: "help-link", aria: { label: "How may I help you?" } do %>
+      <i class="fa-solid fa-comment-medical" style="color: #ffffff;"></i>
     <% end %>
   </div>
 
@@ -82,7 +83,7 @@
           params[:specialization], placeholder: "Enter the specialization", class: "form-control location-input" %>
       <%= text_field_tag :languages,
           params[:languages], placeholder: "Enter your language", class: "form-control location-input" %>
-      <%= submit_tag "Search", class: "btn btn-doc search-btn", id: "searchy" %>
+      <%= submit_tag "Search", class: "btn search-btn", id: "searchy" %>
     <% end %>
   </div>
 

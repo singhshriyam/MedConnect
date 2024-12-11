@@ -1,6 +1,7 @@
 <div class="container chat d-flex">
   <div class="row w-100">
-     <div class="col-md-8">
+
+    <div class="col-md-8">
       <div class="video-container">
         <script>
           let myLink = '<%= @room_link %>';
@@ -21,24 +22,29 @@
         </script>
       </div>
     </div>
-    
-  <div class="col-md-4">
-    <h1>Messages with <%= @message_target%></h1>
-    <!--Current user: <%= current_user.first_name %> / Patient: <%= @appointment.user.first_name %> / Doctor: <%= @appointment.doctor.first_name %>-->
-    <div id="messages" class="messages">
-      <% @appointment.messages.each do |message| %>
-         <%= render "messages/message", message: message %>
-      <% end %>
+
+    <div class="col-md-4">
+      <div class="message-box">
+        <h2>Messages with <%= @message_target%> </h2>
+        <!--Current user: <%= current_user.first_name %> / Patient: <%= @appointment.user.first_name %> / Doctor: <%= @appointment.doctor.first_name %>-->
+        <%= turbo_stream_from "appointment_#{@appointment.id}_messages" %>
+        <div id="messages" class="messages">
+          <% @appointment.messages.each do |message| %>
+            <%= render "messages/message", message: message, user: current_user %>
+          <% end %>
+        </div>
+
+        <div class="container">
+          <%= simple_form_for [@appointment, @message], html: {class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
+            <%= f.input :content, label: false, placeholder: "Message #{@message_target}",
+              wrapper_html: {class: "flex-grow-1"}, input_html: {class: "input-text"} %>
+            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <% end %>
+          <%= link_to 'End videocall', appointment_path(@appointment), class: 'btn search-btn' %>
+        </div>
+
+      </div>
     </div>
-    
-    <div class="container">
-      <%= simple_form_for [@appointment, @message], html: {class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message #{@message_target}",
-        wrapper_html: {class: "flex-grow-1"} %>
-        <%= f.submit "Send", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-   </div>
 
   </div>
 </div>

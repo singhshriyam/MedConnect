@@ -335,7 +335,7 @@ end
 
 users = User.all
 
-hospital_positions = ["oncology", "gastroentorology", "psychiatry", "family", "otolaryngology", "dermatology", "neurology", "pediatry", "cardiology", "rheumatology", "ophthalmology", "podiatry", "pulmonology"]
+hospital_positions = ["oncology", "gastroentorology", "psychiatry", "family", "otolaryngology", "dermatology", "neurology", "pediatry", "cardiology", "rheumatology", "ophthalmology", "podiatry", "pulmonology", "generalist"]
 
 downtown = ["berlin", "lübeck", "frankfurt", "hannover", "düsseldorf", "essen", "dortmund", "leipzig", "stuutgard", "hamburg", "cologne", "nuremburg"]
 

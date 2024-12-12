@@ -296,7 +296,7 @@ doctor11 = Doctor.create!(
   last_name: user11.last_name,
   experience: 12,
   specialization: "neurology",
-  city: "oxford, OX",
+  city: "berlin",
   description: "I graduated from the Oxford University in Oxford in 2012 and made my residency at
   Royal London Hospital. Later I moved to Hannover, NI and recertified as a
   paediatrician at Charite Universitätsmedizin Berlin. Now I live in Hannover. I now have worked at Le Krankenwagon
@@ -467,6 +467,21 @@ LanguageAbility.create!(
   language_id: languages.find_by(name: "english").id
 )
 
+LanguageAbility.create!(
+  doctor_id: doctor9.id,
+  language_id: languages.find_by(name: "english").id
+)
+
+LanguageAbility.create!(
+  doctor_id: doctor15.id,
+  language_id: languages.find_by(name: "english").id
+)
+
+LanguageAbility.create!(
+  doctor_id: doctor11.id,
+  language_id: languages.find_by(name: "english").id
+)
+
 puts "seeding appointments"
 5.times do
   Appointment.create!(
@@ -498,16 +513,11 @@ puts "Seeding doctor reviews"
 
 doctors.each do |doctor|
   review_templates = [
-    "Dr. #{doctor.last_name} was very professional and attentive. They helped me understand my condition and provided excellent treatment.",
-    "I had a great experience with Dr. #{doctor.last_name}. The consultation was on time, and they addressed all my concerns.",
-    "Dr. #{doctor.last_name} is very knowledgeable. They took the time to explain everything in detail and made me feel comfortable.",
-    "The appointment with Dr. #{doctor.last_name} went smoothly. However, the waiting time could have been shorter.",
-    "Dr. #{doctor.last_name} is fantastic! They have a great bedside manner and really listened to what I had to say.",
-    "I felt rushed during my appointment with Dr. #{doctor.last_name}, but the treatment was effective.",
-    "Dr. #{doctor.last_name} was polite and thorough. I appreciated their clear communication.",
-    "While Dr. #{doctor.last_name} was helpful, I felt the session could have been more detailed.",
-    "Amazing service! Dr. #{doctor.last_name} was empathetic and highly skilled.",
-    "Dr. #{doctor.last_name} exceeded my expectations. The online consultation was seamless and productive."
+    "Dr. #{doctor.last_name} was very professional and attentive. They helped me understand my condition and provided excellent treatment. I had a great experience with Dr. #{doctor.last_name}. The consultation was on time, and they addressed all my concerns.",
+    "Dr. #{doctor.last_name} is very knowledgeable. They took the time to explain everything in detail and made me feel comfortable. The appointment with Dr. #{doctor.last_name} went smoothly. However, the waiting time could have been shorter.",
+    "Dr. #{doctor.last_name} is fantastic! They have a great bedside manner and really listened to what I had to say. I felt rushed during my appointment with Dr. #{doctor.last_name}, but the treatment was effective.",
+    "Dr. #{doctor.last_name} was polite and thorough. I appreciated their clear communication. While Dr. #{doctor.last_name} was helpful, I felt the session could have been more detailed.",
+    "Amazing service! Dr. #{doctor.last_name} was empathetic and highly skilled. Dr. #{doctor.last_name} exceeded my expectations. The online consultation was seamless and productive."
   ]
   [3, 4, 5].sample.times do
     DoctorReview.create!(

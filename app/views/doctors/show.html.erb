@@ -76,19 +76,30 @@
     <% @first_reviews.each do |doctor_review| %>
       <div class="doc-review-itteration-frame">
         <div class="review-frame">
-          <div class="first-flex">
-            <div class="review-title">
-              Title: <%= doctor_review.title %>
+          <div class="big-flex">
+            <div>
+              <% if doctor_review.user.photo.attached? %>
+                <%= cl_image_tag doctor_review.user.photo.key, alt: "Profile Picture", class: "pic-image" %>
+              <% else %>
+                <img class="pic-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="Default Profile Picture">
+              <% end %>
             </div>
-            <div class="review-user-id">
-              Name: <%= doctor_review.user.first_name.capitalize %> <%= doctor_review.user.last_name.capitalize %>
+            <div class="inner-flex">
+              <div class="first-flex">
+                <div class="review-title">
+                  <%= doctor_review.title %>
+                </div>
+                <div class="review-user-id">
+                  <%= doctor_review.user.first_name.capitalize %> <%= doctor_review.user.last_name.capitalize %>
+                </div>
+                <div class="review-user-id">
+                  <%= doctor_review.rating %>
+                </div>
+              </div>
+              <div class="comment-div">
+                <%= doctor_review.comment %>
+              </div>
             </div>
-            <div class="review-user-id">
-              Rating: <%= doctor_review.rating %>
-            </div>
-          </div>
-          <div class="comment-div">
-            Comment: <%= doctor_review.comment %>
           </div>
         </div>
       </div>
@@ -97,19 +108,30 @@
       <% @doctor_reviews.each do |doc_review| %>
         <div class="doc-review-itteration-frame">
           <div class="review-frame">
-            <div class="first-flex">
-              <div class="review-title">
-                Title: <%= doc_review.title %>
+            <div class="big-flex">
+              <div>
+                <% if doc_review.user.photo.attached? %>
+                  <%= cl_image_tag doc_review.user.photo.key, alt: "Profile Picture", class: "pic-image" %>
+                <% else %>
+                  <img class="pic-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="Default Profile Picture">
+                <% end %>
               </div>
-              <div class="review-user-id">
-                Name: <%= doc_review.user.first_name.capitalize %> <%= doc_review.user.last_name.capitalize %>
+              <div class="inner-flex">
+                <div class="first-flex">
+                  <div class="review-title">
+                    <%= doc_review.title %>
+                  </div>
+                  <div class="review-user-id">
+                    <%= doc_review.user.first_name.capitalize %> <%= doc_review.user.last_name.capitalize %>
+                  </div>
+                  <div class="review-user-id">
+                    <%= doc_review.rating %>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <%= doc_review.comment %>
+                </div>
               </div>
-              <div class="review-user-id">
-                Rating: <%= doc_review.rating %>
-              </div>
-            </div>
-            <div class="comment-div">
-              Comment: <%= doc_review.comment %>
             </div>
           </div>
         </div>

@@ -462,6 +462,11 @@ doctors.each do |doctor|
   end
 end
 
+LanguageAbility.create!(
+  doctor_id: doctor2.id,
+  language_id: languages.find_by(name: "english").id
+)
+
 puts "seeding appointments"
 5.times do
   Appointment.create!(

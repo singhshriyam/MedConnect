@@ -6,11 +6,15 @@ export default class extends Controller {
   connect() {
 
   }
-  seeMore() {
+  seeMore(event) {
     if (this.restReviewsTarget.classList.contains("d-none") )  {
-      this.restReviewsTarget.classList.remove("d-none")
+      this.restReviewsTarget.classList.remove("d-none");
+      event.currentTarget.innerText="Less Reviews"
+
     } else {
       this.restReviewsTarget.classList.add("d-none")
+      event.currentTarget.innerText="More Reviews"
+
     }
   }
 }

@@ -65,57 +65,81 @@
       <% end %></ul>
     </div>
   </div>
-  <div class="review-big-sub" data-controller="show-more">
-    <div class="make-more">
-      <div class="btn-appointment additional" data-action="click->show-more#seeMore">See all reviews</div>
-      <div class="btn-appointment"><%= link_to "Create a review", new_doctor_doctor_review_path(@doctor) %> </div>
-    </div>
-    <div class="scrolly">
-      <% @first_reviews.each do |doctor_review| %>
-        <div class="doc-review-itteration-frame">
-          <div class="review-frame">
-            <div class="first-flex">
-              <div class="review-title">
-                Title: <%= doctor_review.title %>
+</div>
+
+<div class="review-big-sub" data-controller="show-more">
+  <div class="make-more">
+    <div class="btn-appointment additional" data-action="click->show-more#seeMore">More Reviews</div>
+    <div class="btn-appointment"><%= link_to "Create a review", new_doctor_doctor_review_path(@doctor) %> </div>
+  </div>
+  <div class="scrolly">
+    <% @first_reviews.each do |doctor_review| %>
+      <div class="doc-review-itteration-frame">
+        <div class="review-frame">
+          <div class="big-flex">
+            <div>
+              <% if doctor_review.user.photo.attached? %>
+                <%= cl_image_tag doctor_review.user.photo.key, alt: "Profile Picture", class: "pic-image" %>
+              <% else %>
+                <img class="pic-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="Default Profile Picture">
+              <% end %>
+            </div>
+            <div class="inner-flex">
+              <div class="first-flex">
+                <div class="review-title">
+                  <%= doctor_review.title %>
+                </div>
+                <div class="review-user-id">
+                  <%= doctor_review.user.first_name.capitalize %> <%= doctor_review.user.last_name.capitalize %>
+                </div>
+                <div class="review-user-id">
+                  <%= doctor_review.rating %>
+                </div>
               </div>
-              <div class="review-user-id">
-                Name: <%= doctor_review.user.first_name.capitalize %> <%= doctor_review.user.last_name.capitalize %>
-              </div>
-              <div class="review-user-id">
-                Rating: <%= doctor_review.rating %>
+              <div class="comment-div">
+                <%= doctor_review.comment %>
               </div>
             </div>
-            <div class="comment-div">
-              Comment: <%= doctor_review.comment %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="more d-none" data-show-more-target="restReviews">
+      <% @doctor_reviews.each do |doc_review| %>
+        <div class="doc-review-itteration-frame">
+          <div class="review-frame">
+            <div class="big-flex">
+              <div>
+                <% if doc_review.user.photo.attached? %>
+                  <%= cl_image_tag doc_review.user.photo.key, alt: "Profile Picture", class: "pic-image" %>
+                <% else %>
+                  <img class="pic-image" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="Default Profile Picture">
+                <% end %>
+              </div>
+              <div class="inner-flex">
+                <div class="first-flex">
+                  <div class="review-title">
+                    <%= doc_review.title %>
+                  </div>
+                  <div class="review-user-id">
+                    <%= doc_review.user.first_name.capitalize %> <%= doc_review.user.last_name.capitalize %>
+                  </div>
+                  <div class="review-user-id">
+                    <%= doc_review.rating %>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <%= doc_review.comment %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
-      <div class="more d-none" data-show-more-target="restReviews">
-        <% @doctor_reviews.each do |doc_review| %>
-          <div class="doc-review-itteration-frame">
-            <div class="review-frame">
-              <div class="first-flex">
-                <div class="review-title">
-                  Title: <%= doc_review.title %>
-                </div>
-                <div class="review-user-id">
-                  Name: <%= doc_review.user.first_name.capitalize %> <%= doc_review.user.last_name.capitalize %>
-                </div>
-                <div class="review-user-id">
-                  Rating: <%= doc_review.rating %>
-                </div>
-              </div>
-              <div class="comment-div">
-                Comment: <%= doc_review.comment %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
-<div id="back-doctors" >
+
+<div class="text-center mt-5 mb-5" id="back-doctors" >
   <%= link_to 'Back to Doctors', doctors_path, class: 'btn-appointment' %>
 </div>

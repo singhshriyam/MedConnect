@@ -6,14 +6,11 @@
   // height: 300px;
   padding: 10px;
   width: 100%;
-  position: absolute;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .hidden {
-  /* display: none; */
-  opacity: 0;
-  visibility: hidden;
+  display: none;
 }
 
 .appointment-container {

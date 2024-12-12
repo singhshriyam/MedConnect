@@ -7,7 +7,8 @@ class DoctorReviewsController < ApplicationController
   def create
     @doctor_review = DoctorReview.new(doctor_review_params)
     @doctor_review.user = current_user
-    @doctor = doctor_review.doctor
+    @doctor = Doctor.find(params[:doctor_id])
+    @doctor_review.doctor = @doctor
     if @doctor_review.save
       redirect_to @doctor, notice: "Doctor's review was successfully created."
     else

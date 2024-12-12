@@ -15,8 +15,11 @@
             <li class="list-group-item bg-white"><strong>Symptoms:</strong> <%= @appointment.symptoms %></li>
             <li class="list-group-item bg-white"><strong>Medical History:</strong> <%= @appointment.medical_history %></li>
             <li class="list-group-item bg-white"><strong>User:</strong> <%= @appointment.user.email %></li>
-            <li class="list-group-item bg-white"><strong>Price:</strong> <%= @appointment.doctor.price_per_hour %> € / h</li>
-            <li class="list-group-item bg-white"> <%= link_to "Chat with #{@message_target}", appointment_messages_path(@appointment), class: "btn btn-doc mt-2", style: "color: #{@blue}"; %></li>
+            <li class="list-group-item bg-white"><strong>Price:</strong> <%= @appointment.doctor.price_per_hour %> € / h</li>         
+            <div class="d-flex justify-content-between border-0" style="border: none;">
+              <li class="list-group-item bg-white"><%= link_to "Chat with #{@message_target}", appointment_messages_path(@appointment), class: "btn btn-doc mt-2", style: "color: #{@blue};" %></li>
+              <li class="list-group-item bg-white"><%= link_to "Review Dr. #{@doctor.full_name}", new_doctor_doctor_review_path(@doctor), class: "btn btn-doc mt-2", style: "color: #{@blue};" %></li>
+            </div>
           </ul>
         </div>
         <div class="card-footer text-center bg-white">

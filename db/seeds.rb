@@ -15,9 +15,9 @@ Message.delete_all
 Appointment.delete_all
 LanguageAbility.delete_all
 Language.delete_all
+DoctorReview.delete_all
 Doctor.delete_all
 User.delete_all
-DoctorReview.delete_all
 
 user1 = User.create!(
   first_name: "joel mario",
@@ -243,7 +243,7 @@ doctor9 = Doctor.create!(
   first_name: user9.first_name,
   last_name: user9.last_name,
   experience: 10,
-  specialization: "medicine",
+  specialization: "neurology",
   city: "frankfurt",
   description: "I graduated from Universidade Federal do Rio de Janeiro in 2013 and made my residency at
   Hospital São Lucas Copacabana. Then I recertified as a docotr in Family Medicine at Charite Universitätsmedizin Berlin
@@ -295,8 +295,8 @@ doctor11 = Doctor.create!(
   first_name: user11.first_name,
   last_name: user11.last_name,
   experience: 12,
-  specialization: "cardiology",
-  city: "oxford, OX",
+  specialization: "neurology",
+  city: "berlin",
   description: "I graduated from the Oxford University in Oxford in 2012 and made my residency at
   Royal London Hospital. Later I moved to Hannover, NI and recertified as a
   paediatrician at Charite Universitätsmedizin Berlin. Now I live in Hannover. I now have worked at Le Krankenwagon
@@ -321,17 +321,57 @@ end
 languages = Language.all
 
 puts "seeding users"
-5.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 6),
-    year_of_birth: Faker::Number.between(from: 1950, to: 2005)
-  )
-  file = URI.open("https://picsum.photos/images")
-  user.photo.attach(io: file, filename: "#{user.first_name.downcase}_profile.png", content_type: "image/png")
-end
+# 5.times do
+#   user = User.create!(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: Faker::Internet.password(min_length: 6),
+#     year_of_birth: Faker::Number.between(from: 1950, to: 2005)
+#   )
+#   file = URI.open("https://picsum.photos/images")
+#   user.photo.attach(io: file, filename: "#{user.first_name.downcase}_profile.png", content_type: "image/png")
+# end
+
+user12 = User.create!(
+  first_name: "damon",
+  last_name: "salvatore",
+  email: "damon@gmail.com",
+  password: "damon123",
+  year_of_birth: 1990
+)
+file = URI.open("https://static.wikia.nocookie.net/rogue-series/images/8/8a/Damon_Salvatore_aesthetic.jpeg/revision/latest/thumbnail/width/360/height/360?cb=20230429002132")
+user12.photo.attach(io: file, filename: "damon.png", content_type: "image/png")
+
+user13 = User.create!(
+  first_name: "stefan",
+  last_name: "salvatore",
+  email: "stefan@gmail.com",
+  password: "stefan123",
+  year_of_birth: 1991
+)
+file = URI.open("https://i.pinimg.com/736x/70/7a/c2/707ac2aeda849111e433e139fa91ed49.jpg")
+user13.photo.attach(io: file, filename: "stefan.png", content_type: "image/png")
+
+user14 = User.create!(
+  first_name: "elena",
+  last_name: "gilbert",
+  email: "elena@gmail.com",
+  password: "elena123",
+  year_of_birth: 1993
+)
+file = URI.open("https://preview.redd.it/i-cannot-pin-point-why-nina-looks-so-different-from-season-v0-fo8cqkjf6lv81.jpg?width=470&format=pjpg&auto=webp&s=989f2b66a67a47748affacd3662e729e7cd0b158")
+user14.photo.attach(io: file, filename: "elena.png", content_type: "image/png")
+
+user15 = User.create!(
+  first_name: "vaibhav",
+  last_name: "vishal",
+  email: "vabbs@gmail.com",
+  password: "vabbs123",
+  year_of_birth: 1990
+)
+file = URI.open("https://s.talentrack.in/uploads/portfolio_thumb_image/135x170/615/123/optim_615123_667738feab00e.jpg")
+user15.photo.attach(io: file, filename: "vabbs.png", content_type: "image/png")
 
 users = User.all
 
@@ -340,22 +380,75 @@ hospital_positions = ["oncology", "gastroentorology", "psychiatry", "family", "o
 downtown = ["berlin", "lübeck", "frankfurt", "hannover", "düsseldorf", "essen", "dortmund", "leipzig", "stuutgard", "hamburg", "cologne", "nuremburg"]
 
 puts "seeding doctors"
-5.times do
-  user = users.sample
-  doctor = Doctor.create!(
-    first_name: user.first_name,
-    last_name: user.last_name,
-    experience: Faker::Number.between(from: 1, to: 40),
-    specialization: hospital_positions.sample,
-    city: downtown.sample,
-    description: Faker::Lorem.sentence(word_count: 30),
-    education: Faker::University.name,
-    availability: "M 10:00-17:00 / T 9:00-16:00 / W 9:00-16:00 / R 9:00-16:00 / F 10:00-14:00",
-    user_id: user.id,
-    price_per_hour: Faker::Number.decimal(l_digits: 2, r_digits: 2)
-  )
-  doctor.photo.attach(user.photo.blob)
-end
+
+doctor12 = Doctor.create!(
+  first_name: user12.first_name,
+  last_name: user12.last_name,
+  experience: Faker::Number.between(from: 1, to: 40),
+  specialization: hospital_positions.sample,
+  city: downtown.sample,
+  description: "Dr. Salvatore is a highly regarded doctor known for his innovative methods and exceptional
+  dedication to patient care. His dynamic approach ensures personalized solutions for each individual.
+  Patients appreciate his empathetic nature and thorough consultations. Dr. Salvatore is committed
+  to delivering outstanding results with a blend of expertise and compassion.",
+  education: Faker::University.name,
+  availability: "M 10:00-17:00 / T 9:00-16:00 / W 9:00-16:00 / R 9:00-16:00 / F 10:00-14:00",
+  user_id: user12.id,
+  price_per_hour: Faker::Number.decimal(l_digits: 2, r_digits: 2)
+)
+doctor12.photo.attach(user12.photo.blob)
+
+doctor13 = Doctor.create!(
+  first_name: user13.first_name,
+  last_name: user13.last_name,
+  experience: Faker::Number.between(from: 1, to: 40),
+  specialization: hospital_positions.sample,
+  city: downtown.sample,
+  description: "Dr. Salvatore is admired for his holistic and patient-centered approach, always prioritizing
+  individual needs. He takes the time to build meaningful connections, creating a comforting and supportive
+  environment. Known for his calm demeanor, he ensures patients feel heard and valued. His commitment to
+  excellence has earned him the trust and respect of many.",
+  education: Faker::University.name,
+  availability: "M 10:00-17:00 / T 9:00-16:00 / W 9:00-16:00 / R 9:00-16:00 / F 10:00-14:00",
+  user_id: user13.id,
+  price_per_hour: Faker::Number.decimal(l_digits: 2, r_digits: 2)
+)
+doctor13.photo.attach(user13.photo.blob)
+
+doctor14 = Doctor.create!(
+  first_name: user14.first_name,
+  last_name: user14.last_name,
+  experience: Faker::Number.between(from: 1, to: 40),
+  specialization: hospital_positions.sample,
+  city: downtown.sample,
+  description: "Dr. Gilbert is a trusted medical professional celebrated for her meticulous care and
+  compassionate approach. She combines modern practices with genuine warmth, creating a reassuring experience
+  for her patients. Her attention to detail and dedication to their well-being inspire confidence. Patients
+    rely on her expertise and the personalized care she provides.",
+  education: Faker::University.name,
+  availability: "M 10:00-17:00 / T 9:00-16:00 / W 9:00-16:00 / R 9:00-16:00 / F 10:00-14:00",
+  user_id: user14.id,
+  price_per_hour: Faker::Number.decimal(l_digits: 2, r_digits: 2)
+)
+doctor14.photo.attach(user14.photo.blob)
+
+doctor15 = Doctor.create!(
+  first_name: user15.first_name,
+  last_name: user15.last_name,
+  experience: Faker::Number.between(from: 1, to: 40),
+  specialization: "neurology",
+  city: downtown.sample,
+  description: "Dr. Vishal is a highly skilled doctor known for his approachable nature and thorough care.
+  He adopts a comprehensive strategy to address his patients’ health concerns effectively. His ability to
+  provide tailored solutions reflects his commitment to excellence. Patients consistently commend his
+  professionalism and empathetic demeanor.",
+  education: Faker::University.name,
+  availability: "M 10:00-17:00 / T 9:00-16:00 / W 9:00-16:00 / R 9:00-16:00 / F 10:00-14:00",
+  user_id: user15.id,
+  price_per_hour: Faker::Number.decimal(l_digits: 2, r_digits: 2)
+)
+doctor15.photo.attach(user15.photo.blob)
+
 
 doctors = Doctor.all
 
@@ -369,8 +462,28 @@ doctors.each do |doctor|
   end
 end
 
+LanguageAbility.create!(
+  doctor_id: doctor2.id,
+  language_id: languages.find_by(name: "english").id
+)
+
+LanguageAbility.create!(
+  doctor_id: doctor9.id,
+  language_id: languages.find_by(name: "english").id
+)
+
+LanguageAbility.create!(
+  doctor_id: doctor15.id,
+  language_id: languages.find_by(name: "english").id
+)
+
+LanguageAbility.create!(
+  doctor_id: doctor11.id,
+  language_id: languages.find_by(name: "english").id
+)
+
 puts "seeding appointments"
-50.times do
+5.times do
   Appointment.create!(
     starts_at: Faker::Time.between_dates(from: Date.today, to: Date.today + 30, period: :day),
     ends_at: Faker::Time.between_dates(from: Date.today + 31, to: Date.today + 60, period: :day),
@@ -387,7 +500,7 @@ end
 appointments = Appointment.all
 
 puts "seeding messages"
-50.times do
+5.times do
   Message.create!(
     content: Faker::Lorem.sentence(word_count: 15),
     appointment_id: appointments.sample.id,
@@ -397,13 +510,21 @@ end
 
 puts "Seeding doctor reviews"
 
+
 doctors.each do |doctor|
+  review_templates = [
+    "Dr. #{doctor.last_name} was very professional and attentive. They helped me understand my condition and provided excellent treatment. I had a great experience with Dr. #{doctor.last_name}. The consultation was on time, and they addressed all my concerns.",
+    "Dr. #{doctor.last_name} is very knowledgeable. They took the time to explain everything in detail and made me feel comfortable. The appointment with Dr. #{doctor.last_name} went smoothly. However, the waiting time could have been shorter.",
+    "Dr. #{doctor.last_name} is fantastic! They have a great bedside manner and really listened to what I had to say. I felt rushed during my appointment with Dr. #{doctor.last_name}, but the treatment was effective.",
+    "Dr. #{doctor.last_name} was polite and thorough. I appreciated their clear communication. While Dr. #{doctor.last_name} was helpful, I felt the session could have been more detailed.",
+    "Amazing service! Dr. #{doctor.last_name} was empathetic and highly skilled. Dr. #{doctor.last_name} exceeded my expectations. The online consultation was seamless and productive."
+  ]
   [3, 4, 5].sample.times do
     DoctorReview.create!(
       doctor_id: doctor.id,
       user_id: User.all.sample.id,
       title: Faker::Lorem.sentence(word_count: 3),
-      comment: Faker::Lorem.sentence(word_count: 30),
+      comment: review_templates.sample,
       rating: [3, 4, 5].sample
     )
   end

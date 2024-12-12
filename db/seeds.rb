@@ -246,9 +246,9 @@ doctor9 = Doctor.create!(
   specialization: "neurology",
   city: "frankfurt",
   description: "I graduated from Universidade Federal do Rio de Janeiro in 2013 and made my residency at
-  Hospital São Lucas Copacabana. Then I recertified as a docotr in Family Medicine at Charite Universitätsmedizin Berlin
+  Hospital São Lucas Copacabana. Then I recertified as a docotr in neurology at Charite Universitätsmedizin Berlin
   . After that I moved to Frankfurt, NRW. I now have worked at Le Krankenwagon Frankfurt for 10 years.",
-  education: "MD in Family Medicine from Universidade Federal do Rio de Janeiro",
+  education: "MD in Neurology from Universidade Federal do Rio de Janeiro",
   availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 60,
   user_id: user9.id
@@ -299,9 +299,9 @@ doctor11 = Doctor.create!(
   city: "berlin",
   description: "I graduated from the Oxford University in Oxford in 2012 and made my residency at
   Royal London Hospital. Later I moved to Hannover, NI and recertified as a
-  paediatrician at Charite Universitätsmedizin Berlin. Now I live in Hannover. I now have worked at Le Krankenwagon
+  nurologist at Charite Universitätsmedizin Berlin. Now I live in Hannover. I now have worked at Le Krankenwagon
   Hanover for 7 years.",
-  education: "MD in cardiology surgery from the University of London",
+  education: "MD in neurology surgery from the University of London",
   availability: "M 10:00-14:00 / T 9:00-16:00 / W 10:00-14:00, 15:00-18:00 / R 14:00-20:00 / F 12:00-16:00 ",
   price_per_hour: 75,
   user_id: user11.id

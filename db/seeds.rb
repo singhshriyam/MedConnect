@@ -243,7 +243,7 @@ doctor9 = Doctor.create!(
   first_name: user9.first_name,
   last_name: user9.last_name,
   experience: 10,
-  specialization: "medicine",
+  specialization: "neurology",
   city: "frankfurt",
   description: "I graduated from Universidade Federal do Rio de Janeiro in 2013 and made my residency at
   Hospital São Lucas Copacabana. Then I recertified as a docotr in Family Medicine at Charite Universitätsmedizin Berlin
@@ -295,7 +295,7 @@ doctor11 = Doctor.create!(
   first_name: user11.first_name,
   last_name: user11.last_name,
   experience: 12,
-  specialization: "cardiology",
+  specialization: "neurology",
   city: "oxford, OX",
   description: "I graduated from the Oxford University in Oxford in 2012 and made my residency at
   Royal London Hospital. Later I moved to Hannover, NI and recertified as a
@@ -336,8 +336,8 @@ puts "seeding users"
 user12 = User.create!(
   first_name: "damon",
   last_name: "salvatore",
-  email: "peter@gmail.com",
-  password: "peter123",
+  email: "damon@gmail.com",
+  password: "damon123",
   year_of_birth: 1990
 )
 file = URI.open("https://static.wikia.nocookie.net/rogue-series/images/8/8a/Damon_Salvatore_aesthetic.jpeg/revision/latest/thumbnail/width/360/height/360?cb=20230429002132")
@@ -346,11 +346,11 @@ user12.photo.attach(io: file, filename: "damon.png", content_type: "image/png")
 user13 = User.create!(
   first_name: "stefan",
   last_name: "salvatore",
-  email: "william@gmail.com",
-  password: "william123",
+  email: "stefan@gmail.com",
+  password: "stefan123",
   year_of_birth: 1991
 )
-file = URI.open("https://ca.slack-edge.com/T02NE0241-U058H1AU545-bcd99cf71336-512")
+file = URI.open("https://i.pinimg.com/736x/70/7a/c2/707ac2aeda849111e433e139fa91ed49.jpg")
 user13.photo.attach(io: file, filename: "stefan.png", content_type: "image/png")
 
 user14 = User.create!(
@@ -436,7 +436,7 @@ doctor15 = Doctor.create!(
   first_name: user15.first_name,
   last_name: user15.last_name,
   experience: Faker::Number.between(from: 1, to: 40),
-  specialization: hospital_positions.sample,
+  specialization: "neurology",
   city: downtown.sample,
   description: "Dr. Vishal is a highly skilled doctor known for his approachable nature and thorough care.
   He adopts a comprehensive strategy to address his patients’ health concerns effectively. His ability to

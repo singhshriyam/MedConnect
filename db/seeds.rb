@@ -58,7 +58,7 @@ doctor2 = Doctor.create!(
   first_name: user2.first_name,
   last_name: user2.last_name,
   experience: 7,
-  specialization: "generalist",
+  specialization: "neurology",
   city: "berlin",
   description: "I graduated from the University of Buenos Aires in 2016 and made my residency at
   the Instituto Argentino de Diagnostico y Tratamiento. Shortly thereafter I moved to Berlin and recertified as a

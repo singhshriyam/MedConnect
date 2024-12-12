@@ -58,6 +58,7 @@
   width: 100%;
   font-size: 18px;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .comment-div {
@@ -82,4 +83,24 @@
 
 .additional {
   cursor: pointer;
+}
+
+.big-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.pic-image {
+  width: 100px;
+  border-radius: 50px;
+  border: 1px solid $blue;
+  margin-right: 15px;
+}
+
+.inner-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
 }
